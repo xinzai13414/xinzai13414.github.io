@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-04-08T13:41:42.004Z</updated>
+  <updated>2024-04-10T15:36:17.830Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,8 +21,15 @@
     <link href="http://example.com/post/c6b2a2fd.html"/>
     <id>http://example.com/post/c6b2a2fd.html</id>
     <published>2024-04-08T12:55:48.000Z</published>
-    <updated>2024-04-08T13:41:42.004Z</updated>
+    <updated>2024-04-10T15:36:17.830Z</updated>
     
+    <content type="html"><![CDATA[<h1 id="最小系统"><a href="#最小系统" class="headerlink" title="最小系统"></a><center>最小系统</center></h1><h2 id="单片机芯片"><a href="#单片机芯片" class="headerlink" title="单片机芯片"></a><center>单片机芯片</center></h2><p>本次51单片机的芯片为：STC89C52</p><img src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202404101723175.png" alt="芯片类型" style="zoom:50%;"><p>Flash(闪存)程序存储器：存储程序的空间</p><p>SRAM：静态随机存取存储器，指这种存储器只要保持通电，里面储存的数据就可以恒常保持，电力供应停止时，SRAM储存的数据还是会消失（动态随机存取存储器（DRAM）里面所储存的数据就需要周期性地更新）</p><p>DPTR：16位的寄存器（两个8位寄存器组成），用于间接寻址，DPH存储地址的高8位，而DPL存储地址的低8位</p><p>EEPROM：带电可擦可编程只读存储器。是一种掉电后数据不丢失的存储芯片</p><p>看门狗：用于监控单片机程序运行状态的机制。它通过一个定时器电路实现，能够在程序运行失控或遇到硬件错误时对单片机进行复位操作，以确保程序能够重新开始执行</p><p>A&#x2F;D：模拟信号到数字信号的转换（模拟&#x2F;数字）</p><p>I&#x2F;O：输入和输出，输入（Input）是指数据或信号从外部设备或用户传输到计算机系统内部的过程，而输出（Output）则是指数据或信号从计算机系统传输到外部设备或用户的过程</p><h2 id="时钟电路"><a href="#时钟电路" class="headerlink" title="时钟电路"></a><center>时钟电路</center></h2><p>产生固定频率的交流信号，晶振是产生信号的元器件（由晶振频率计算产生）</p><p>12Mhz：</p><p>时钟周期：1&#x2F;12Mhz，单位是秒，12Mhz要转为秒为12000000hz</p><p>1&#x2F;12000000≈0.00000008s</p><p>机器周期：12×时钟周期 &#x3D; 0.00000008s×12 &#x3D; 0.000001s，转为us就是1us</p><h2 id="复位电路"><a href="#复位电路" class="headerlink" title="复位电路"></a><center>复位电路</center></h2><p>按键复位和上电复位</p><h2 id="电源"><a href="#电源" class="headerlink" title="电源"></a><center>电源</center></h2><p>供电，51单片机一般5v，smt32单片机一般3.3v</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;最小系统&quot;&gt;&lt;a href=&quot;#最小系统&quot; class=&quot;headerlink&quot; title=&quot;最小系统&quot;&gt;&lt;/a&gt;&lt;center&gt;最小系统&lt;/center&gt;&lt;/h1&gt;&lt;h2 id=&quot;单片机芯片&quot;&gt;&lt;a href=&quot;#单片机芯片&quot; class=&quot;headerlin</summary>
+      
     
     
     
