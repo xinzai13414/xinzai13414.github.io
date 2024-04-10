@@ -1,3 +1,4 @@
+http://example.com/post/f8f1fb54.html
 http://example.com/post/c6b2a2fd.html
 http://example.com/post/df718222.html
 http://example.com/post/804ae251.html
@@ -77,8 +78,8 @@ http://example.com/tags/%E4%BA%91%E5%9B%BE%E5%BA%8A/
 http://example.com/tags/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/
 http://example.com/tags/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7/
 http://example.com/tags/%E5%B0%8F%E7%8B%BC%E6%AF%AB%E8%BE%93%E5%85%A5%E6%B3%95/
-http://example.com/tags/%E6%8F%92%E4%BB%B6/
 http://example.com/tags/%E9%AD%94%E6%B3%95/
+http://example.com/tags/%E6%8F%92%E4%BB%B6/
 http://example.com/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2/
 http://example.com/tags/%E6%94%BF%E6%B2%BB/
 http://example.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E4%B8%8E%E5%9F%BA%E7%A1%80/
