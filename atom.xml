@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-06-19T08:42:39.776Z</updated>
+  <updated>2024-06-23T02:37:45.788Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,8 +21,15 @@
     <link href="http://example.com/post/f5fba2c3.html"/>
     <id>http://example.com/post/f5fba2c3.html</id>
     <published>2024-06-19T08:41:34.000Z</published>
-    <updated>2024-06-19T08:42:39.776Z</updated>
+    <updated>2024-06-23T02:37:45.788Z</updated>
     
+    <content type="html"><![CDATA[<h1 id="IIC理论"><a href="#IIC理论" class="headerlink" title="IIC理论"></a><center>IIC理论</center></h1><h2 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a><center>实现方式</center></h2><p>软件IIC：流程清楚、占用时间、速度慢</p><p>硬件IIC ：用法复杂、速度快、可以用DMA</p><h2 id="电路"><a href="#电路" class="headerlink" title="电路"></a><center>电路</center></h2><p>SCL：时钟线，SPA：数据线</p><p>上拉电阻：4.7k-10k</p><h2 id="速率"><a href="#速率" class="headerlink" title="速率"></a><center>速率</center></h2><p>标准模式：100Kb&#x2F;s、快速模式：400Kb&#x2F;s、高速模式：3.4Mb&#x2F;s</p><h2 id="时序"><a href="#时序" class="headerlink" title="时序"></a><center>时序</center></h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;IIC理论&quot;&gt;&lt;a href=&quot;#IIC理论&quot; class=&quot;headerlink&quot; title=&quot;IIC理论&quot;&gt;&lt;/a&gt;&lt;center&gt;IIC理论&lt;/center&gt;&lt;/h1&gt;&lt;h2 id=&quot;实现方式&quot;&gt;&lt;a href=&quot;#实现方式&quot; class=&quot;headerl</summary>
+      
     
     
     
@@ -210,9 +217,9 @@
     <link href="http://example.com/post/1f293ccb.html"/>
     <id>http://example.com/post/1f293ccb.html</id>
     <published>2024-04-03T15:18:19.000Z</published>
-    <updated>2024-04-04T13:40:27.733Z</updated>
+    <updated>2024-06-23T02:43:26.283Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="猫狸盘搜"><a href="#猫狸盘搜" class="headerlink" title="猫狸盘搜"></a>猫狸盘搜</h3><p><a href="https://www.alipansou.com/">地址</a></p><h3 id="千帆搜索"><a href="#千帆搜索" class="headerlink" title="千帆搜索"></a>千帆搜索</h3><p><a href="https://pan.qianfan.app/">地址</a></p><h3 id="懒盘搜索"><a href="#懒盘搜索" class="headerlink" title="懒盘搜索"></a>懒盘搜索</h3><p><a href="https://www.lzpanx.com/">地址</a></p><h3 id="盘友圈"><a href="#盘友圈" class="headerlink" title="盘友圈"></a>盘友圈</h3><p><a href="https://panyq.com/">地址</a></p><h3 id="UP云搜"><a href="#UP云搜" class="headerlink" title="UP云搜"></a>UP云搜</h3><p><a href="https://www.upyunso.com/">地址</a></p><h3 id="学霸盘"><a href="#学霸盘" class="headerlink" title="学霸盘"></a>学霸盘</h3><p><a href="https://www.xuebapan.com/">地址</a></p><h3 id="盘他一下"><a href="#盘他一下" class="headerlink" title="盘他一下"></a>盘他一下</h3><p><a href="https://www.panothers.com/">地址</a></p><h3 id="云盘分享网"><a href="#云盘分享网" class="headerlink" title="云盘分享网"></a>云盘分享网</h3><p><a href="https://alypw.cn/">网址</a></p><h3 id="好当家"><a href="#好当家" class="headerlink" title="好当家"></a>好当家</h3><p><a href="https://www.hjdang.com/">网址</a></p><h3 id="爱盘搜"><a href="#爱盘搜" class="headerlink" title="爱盘搜"></a>爱盘搜</h3><p><a href="https://aipanso.com/">网址</a></p><h3 id="易搜"><a href="#易搜" class="headerlink" title="易搜"></a>易搜</h3><p><a href="https://yiso.fun/">网址</a></p>]]></content>
+    <content type="html"><![CDATA[<h3 id="猫狸盘搜"><a href="#猫狸盘搜" class="headerlink" title="猫狸盘搜"></a>猫狸盘搜</h3><p><a href="https://www.alipansou.com/">地址</a></p><h3 id="千帆搜索"><a href="#千帆搜索" class="headerlink" title="千帆搜索"></a>千帆搜索</h3><p><a href="https://pan.qianfan.app/">地址</a></p><h3 id="懒盘搜索"><a href="#懒盘搜索" class="headerlink" title="懒盘搜索"></a>懒盘搜索</h3><p><a href="https://www.lzpanx.com/">地址</a></p><h3 id="搜度盘"><a href="#搜度盘" class="headerlink" title="搜度盘"></a>搜度盘</h3><p><a href="http://www.sodu123.com/index.html">地址</a></p><h3 id="小白盘"><a href="#小白盘" class="headerlink" title="小白盘"></a>小白盘</h3><p><a href="https://www.xiaobaipan.com/">地址</a></p><h3 id="文件搜"><a href="#文件搜" class="headerlink" title="文件搜"></a>文件搜</h3><p><a href="https://wjsou.com/">地址</a></p><h3 id="SOSO云盘"><a href="#SOSO云盘" class="headerlink" title="SOSO云盘"></a>SOSO云盘</h3><p><a href="https://www.sosoyunpan.com/">地址</a></p><h3 id="搜BaiDu盘"><a href="#搜BaiDu盘" class="headerlink" title="搜BaiDu盘"></a>搜BaiDu盘</h3><p><a href="https://www.sobaidupan.com/">地址</a></p><h3 id="盘友圈"><a href="#盘友圈" class="headerlink" title="盘友圈"></a>盘友圈</h3><p><a href="https://panyq.com/">地址</a></p><h3 id="UP云搜"><a href="#UP云搜" class="headerlink" title="UP云搜"></a>UP云搜</h3><p><a href="https://www.upyunso.com/">地址</a></p><h3 id="学霸盘"><a href="#学霸盘" class="headerlink" title="学霸盘"></a>学霸盘</h3><p><a href="https://www.xuebapan.com/">地址</a></p><h3 id="盘他一下"><a href="#盘他一下" class="headerlink" title="盘他一下"></a>盘他一下</h3><p><a href="https://www.panothers.com/">地址</a></p><h3 id="云盘分享网"><a href="#云盘分享网" class="headerlink" title="云盘分享网"></a>云盘分享网</h3><p><a href="https://alypw.cn/">网址</a></p><h3 id="好当家"><a href="#好当家" class="headerlink" title="好当家"></a>好当家</h3><p><a href="https://www.hjdang.com/">网址</a></p><h3 id="爱盘搜"><a href="#爱盘搜" class="headerlink" title="爱盘搜"></a>爱盘搜</h3><p><a href="https://aipanso.com/">网址</a></p><h3 id="易搜"><a href="#易搜" class="headerlink" title="易搜"></a>易搜</h3><p><a href="https://yiso.fun/">网址</a></p>]]></content>
     
     
       
