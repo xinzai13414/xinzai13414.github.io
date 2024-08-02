@@ -716,14 +716,14 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/GitHub-Picgo%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/</loc>
+    <loc>http://example.com/tags/GitHub%E5%90%8C%E6%AD%A5gitee%E5%B9%B6%E9%83%A8%E7%BD%B2/</loc>
     <lastmod>2024-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/tags/GitHub%E5%90%8C%E6%AD%A5gitee%E5%B9%B6%E9%83%A8%E7%BD%B2/</loc>
+    <loc>http://example.com/tags/GitHub-Picgo%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/</loc>
     <lastmod>2024-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -744,13 +744,6 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2024-08-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://example.com/tags/%E5%B0%8F%E7%8B%BC%E6%AF%AB%E8%BE%93%E5%85%A5%E6%B3%95/</loc>
     <lastmod>2024-08-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -765,14 +758,21 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2/</loc>
+    <loc>http://example.com/tags/%E9%AD%94%E6%B3%95/</loc>
     <lastmod>2024-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/tags/%E9%AD%94%E6%B3%95/</loc>
+    <loc>http://example.com/tags/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2024-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2/</loc>
     <lastmod>2024-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
