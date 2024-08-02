@@ -1,173 +1,475 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>星仔人生录 - 珍惜当下 不负此生</title><noscript>开启JavaScript才能访问本站哦~</noscript><link rel="icon" href="/img/pwa/favicon.ico"><!-- index.css--><link rel="stylesheet" href="/css/index.css?v=2.0.6"><!-- inject head--><link rel="canonical" href="http://example.com/page/3/"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"><!-- aplayer--><!-- swiper--><!-- fancybox ui--><!-- katex--><!-- Open Graph--><meta name="description" content="分享科技与生活"><!-- pwa--><meta name="apple-mobile-web-app-capable" content="星仔人生录"><meta name="theme-color" content="var(--efu-main)"><meta name="apple-mobile-web-app-status-bar-style" content="var(--efu-main)"><link rel="bookmark" href="/img/pwa/favicon.ico"><link rel="apple-touch-icon" href="/img/pwa/favicon.ico" sizes="180x180"><script>console.log(' %c Solitude %c ' + '2.0.6' + ' %c https://github.com/everfu/hexo-theme-solitude',
-    'background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff',
-    'background:#ff9a9a ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff',
-    'background:unset ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff')
-</script><script>(()=>{
-        const saveToLocal = {
-            set: function setWithExpiry(key, value, ttl) {
-                if (ttl === 0)
-                    return
-                const now = new Date()
-                const expiryDay = ttl * 86400000
-                const item = {
-                    value: value,
-                    expiry: now.getTime() + expiryDay
-                }
-                localStorage.setItem(key, JSON.stringify(item))
-            },
-            get: function getWithExpiry(key) {
-                const itemStr = localStorage.getItem(key)
-    
-                if (!itemStr) {
-                    return undefined
-                }
-                const item = JSON.parse(itemStr)
-                const now = new Date()
-    
-                if (now.getTime() > item.expiry) {
-                    localStorage.removeItem(key)
-                    return undefined
-                }
-                return item.value
-            }
-        };
-        window.utils = {
-            saveToLocal: saveToLocal,
-            getCSS: (url, id = false) => new Promise((resolve, reject) => {
-              const link = document.createElement('link')
-              link.rel = 'stylesheet'
-              link.href = url
-              if (id) link.id = id
-              link.onerror = reject
-              link.onload = link.onreadystatechange = function() {
-                const loadState = this.readyState
-                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-                link.onload = link.onreadystatechange = null
-                resolve()
-              }
-              document.head.appendChild(link)
-            }),
-            getScript: (url, attr = {}) => new Promise((resolve, reject) => {
-              const script = document.createElement('script')
-              script.src = url
-              script.async = true
-              script.onerror = reject
-              script.onload = script.onreadystatechange = function() {
-                const loadState = this.readyState
-                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-                script.onload = script.onreadystatechange = null
-                resolve()
-              }
-    
-              Object.keys(attr).forEach(key => {
-                script.setAttribute(key, attr[key])
-              })
-    
-              document.head.appendChild(script)
-            }),
-            addGlobalFn: (key, fn, name = false, parent = window) => {
-                const globalFn = parent.globalFn || {}
-                const keyObj = globalFn[key] || {}
-        
-                if (name && keyObj[name]) return
-        
-                name = name || Object.keys(keyObj).length
-                keyObj[name] = fn
-                globalFn[key] = keyObj
-                parent.globalFn = globalFn
-            },
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>星仔人生录 - 珍惜当下 不负此生</title><meta name="author" content="星仔"><meta name="copyright" content="星仔"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="星仔人生录"><meta name="application-name" content="星仔人生录"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="website"><meta property="og:title" content="星仔人生录"><meta property="og:url" content="http://example.com/page/3/index.html"><meta property="og:site_name" content="星仔人生录"><meta property="og:description" content="分享科技与生活"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746544.png"><meta property="article:author" content="星仔"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746544.png"><meta name="description" content="分享科技与生活"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="http://example.com/page/3/"><link rel="preconnect" href="//cdn.cbd.int"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: undefined,
+  postHeadAiDescription: undefined,
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: {"enable":true,"ck":"3HZ1UVjhMEV6g7Lg","LingQueMonitorID":"3HZ1UVjhMEV6g7Lg"},
+  greetingBox: {"enable":true,"default":"晚上好👋","list":[{"greeting":"晚安😴","startTime":0,"endTime":5},{"greeting":"早上好鸭👋, 祝你一天好心情！","startTime":6,"endTime":9},{"greeting":"上午好👋, 状态很好，鼓励一下～","startTime":10,"endTime":10},{"greeting":"11点多啦, 在坚持一下就吃饭啦～","startTime":11,"endTime":11},{"greeting":"午安👋, 宝贝","startTime":12,"endTime":14},{"greeting":"🌈充实的一天辛苦啦！","startTime":14,"endTime":18},{"greeting":"19点喽, 奖励一顿丰盛的大餐吧🍔。","startTime":19,"endTime":19},{"greeting":"晚上好👋, 在属于自己的时间好好放松😌~","startTime":20,"endTime":24}]},
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  music_page_default: "nav_music",
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: {"mode":"cdn","api":"https://img2color-go.vercel.app/api?img=","cover_change":true},
+  authorStatus: {"skills":["🤖️ 数码科技爱好者","🔍 分享与热心帮助","🏠 智能家居小能手","🔨 设计开发一条龙","🤝 专修交互与设计","🏃 脚踏实地行动派","🧱 团队小组发动机","💢 壮汉人狠话不多"]},
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: 星仔","link":"链接: ","source":"来源: 星仔人生录","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '星仔人生录',
+  title: '星仔人生录',
+  postAI: '',
+  pageFillDescription: '分享科技与生活',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-08-02 11:34:23',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
         }
-    })()</script><!-- global head--><script>const GLOBAL_CONFIG = {
-    root: '/',
-    algolia: undefined,
-    localsearch: undefined,
-    runtime: '2023-04-20 00:00:00',
-    lazyload: {
-        enable: false,
-        error: '/img/error_load.avif'
-    },
-    copyright: {"limit":50,"author":"作者: 星仔","link":"链接: ","source":"来源: 星仔人生录","info":"著作权归作者所有。 商业转载请联系作者获得授权，非商业转载请注明出处。"},
-    highlight: {"limit":200,"expand":true,"copy":true,"syntax":"highlight.js"},
-    randomlink: false,
-    lang: {"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"day":"天前","hour":"小时前","just":"刚刚","min":"分钟前","month":"个月前"},"day":" 天","f12":"开发者模式已打开，请遵循GPL协议。","totalk":"无需删除空行，直接输入评论即可"},
-    aside: {
-        sayhello: {
-            morning: "✨ Good morning. It's a new day",
-            noon: "It's time for a midday break",
-            afternoon: "Tea time. 🍵",
-            night: "early bedtime",
-            goodnight: "Good night 😴",
-        },
-        sayhello2: [],
-        sayhello3: {
-            prefix: '好久不见，',
-            back: '欢迎再次回来，',
-        },
-    },
-    covercolor: {
-        enable: false
-    },
-    comment: false,
-    lightbox: 'null',
-    post_ai: false,
-    right_menu: false,
-    lure: false,
-    expire: false,
-};</script><!-- page-config head--><script id="config-diff">var PAGE_CONFIG = {
-    is_post: false,
-    is_page: false,
-    is_home: true,
-    page: 'solitude',
-    toc: false,
-    comment: false,
-    ai_text: false
-}</script><meta name="generator" content="Hexo 7.1.1"><link rel="alternate" href="/atom.xml" title="星仔人生录" type="application/atom+xml">
-<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head><body id="body" data-type="solitude"><!-- universe--><canvas id="universe"></canvas><!-- background img--><!-- loading--><!-- console--><!-- sidebar--><div id="sidebar" style="zoom: 1;"><div id="menu-mask" style="display: none;"></div><div id="sidebar-menus"><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">72</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a></div></div></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><span class="darkmode_switchbutton menu-child" onclick="sco.switchDarkMode()"><i class="solitude fa-solid fa-circle-half-stroke"></i><span>显示模式</span></span></div><span class="sidebar-menu-item-title">标签</span><div class="card-widget card-tags card-archives card-webinfo card-allinfo"><div class="card-tag-cloud"><a href="/tags/51%E5%8D%95%E7%89%87%E6%9C%BA/">51单片机<sup>9</sup></a><a href="/tags/C%E8%AF%AD%E8%A8%80/">C语言<sup>13</sup></a><a href="/tags/Java/">Java<sup>26</sup></a><a href="/tags/GitHub%E5%90%8C%E6%AD%A5gitee%E5%B9%B6%E9%83%A8%E7%BD%B2/">GitHub同步gitee并部署<sup>1</sup></a><a href="/tags/GitHub-Picgo%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/">GitHub+Picgo图片上传<sup>1</sup></a><a href="/tags/%E4%BA%91%E5%9B%BE%E5%BA%8A/">云图床<sup>1</sup></a><a href="/tags/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/">博客使用手册<sup>1</sup></a><a href="/tags/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7/">图片压缩在线工具<sup>1</sup></a><a href="/tags/%E5%B0%8F%E7%8B%BC%E6%AF%AB%E8%BE%93%E5%85%A5%E6%B3%95/">小狼毫输入法<sup>1</sup></a><a href="/tags/%E6%8F%92%E4%BB%B6/">插件<sup>1</sup></a><a href="/tags/%E9%AD%94%E6%B3%95/">魔法<sup>1</sup></a><a href="/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2/">资源搜索<sup>1</sup></a><a href="/tags/%E6%94%BF%E6%B2%BB/">政治<sup>14</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E4%B8%8E%E5%9F%BA%E7%A1%80/">计算机程序与基础<sup>1</sup></a></div></div></div></div><!-- keyboard--><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav class="show" id="nav"><div id="nav-group"><div id="blog_name"><a id="site-name" href="/" title="返回博客主页"><span class="title">Solitude</span><i class="solitude fa-solid fa-home"></i></a></div><div id="page-name-mask"><div id="page-name"><a id="page-name-text" onclick="sco.toTop()">星仔人生录</a></div></div><div id="menus"></div><div id="nav-left"></div><div id="nav-right"><div class="nav-button" id="nav-totop" onclick="sco.toTop()"><a class="totopbtn"><i class="solitude fa-solid fa-arrow-up"></i><span id="percent">0</span></a></div><div id="toggle-menu"><a class="site-page"><i class="solitude fa-solid fa-bars"></i></a></div></div></div></nav></header><main class="layout" id="content-inner"><div id="home"><div id="category-bar"><div class="category-bar-items home" id="category-bar-items"><div class="category-bar-item select" id="category-bar-home"><a href="/">推荐</a></div><div class="category-bar-item"><a href="/archives/">全部文章</a></div><div class="category-bar-item" id="51单片机"><a href="/categories/51%E5%8D%95%E7%89%87%E6%9C%BA/">51单片机</a></div><div class="category-bar-item" id="编程语言"><a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></div><div class="category-bar-item" id="技术教程"><a href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/">技术教程</a></div><div class="category-bar-item" id="升学"><a href="/categories/%E5%8D%87%E5%AD%A6/">升学</a></div></div><div class="category-bar-right"><a class="category-bar-more" href="/categories/">更多</a></div></div><div class="recent-posts" id="recent-posts"><div class="recent-post-item" onclick="pjax.loadUrl('/post/fbc0ae86.html')"><div class="post_cover"><a href="/post/fbc0ae86.html" title="24.多线程"><img class="post_bg" src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402292029940.png" alt="24.多线程"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="original">编程语言</span><span class="original">Java</span><a class="unvisited-post" href="/post/fbc0ae86.html">未读</a></div><a class="article-title" href="/post/fbc0ae86.html" title="24.多线程">24.多线程</a></div><break></break><div class="article-meta-wrap"><span class="article-meta tags"><a class="article-meta__tags" href="/tags/Java/" onclick="event.stopPropagation();"><span class="tags-punctuation"><i class="solitude fa-solid fa-hashtag"></i>Java</span></a></span><span class="post-meta-date"><time datetime="2023-12-30T05:11:26.000Z"></time></span></div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/post/3e1167ea.html')"><div class="post_cover"><a href="/post/3e1167ea.html" title="23.IO流"><img class="post_bg" src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402292029940.png" alt="23.IO流"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="original">编程语言</span><span class="original">Java</span><a class="unvisited-post" href="/post/3e1167ea.html">未读</a></div><a class="article-title" href="/post/3e1167ea.html" title="23.IO流">23.IO流</a></div><break></break><div class="article-meta-wrap"><span class="article-meta tags"><a class="article-meta__tags" href="/tags/Java/" onclick="event.stopPropagation();"><span class="tags-punctuation"><i class="solitude fa-solid fa-hashtag"></i>Java</span></a></span><span class="post-meta-date"><time datetime="2023-12-30T05:11:05.000Z"></time></span></div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/post/8f9052f9.html')"><div class="post_cover"><a href="/post/8f9052f9.html" title="22.File类和递归"><img class="post_bg" src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402292029940.png" alt="22.File类和递归"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="original">编程语言</span><span class="original">Java</span><a class="unvisited-post" href="/post/8f9052f9.html">未读</a></div><a class="article-title" href="/post/8f9052f9.html" title="22.File类和递归">22.File类和递归</a></div><break></break><div class="article-meta-wrap"><span class="article-meta tags"><a class="article-meta__tags" href="/tags/Java/" onclick="event.stopPropagation();"><span class="tags-punctuation"><i class="solitude fa-solid fa-hashtag"></i>Java</span></a></span><span class="post-meta-date"><time datetime="2023-12-30T05:10:44.000Z"></time></span></div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/post/a24af109.html')"><div class="post_cover"><a href="/post/a24af109.html" title="21.异常"><img class="post_bg" src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402292029940.png" alt="21.异常"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="original">编程语言</span><span class="original">Java</span><a class="unvisited-post" href="/post/a24af109.html">未读</a></div><a class="article-title" href="/post/a24af109.html" title="21.异常">21.异常</a></div><break></break><div class="article-meta-wrap"><span class="article-meta tags"><a class="article-meta__tags" href="/tags/Java/" onclick="event.stopPropagation();"><span class="tags-punctuation"><i class="solitude fa-solid fa-hashtag"></i>Java</span></a></span><span class="post-meta-date"><time datetime="2023-12-30T05:10:22.000Z"></time></span></div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/post/9e25cba9.html')"><div class="post_cover"><a href="/post/9e25cba9.html" title="20.集合"><img class="post_bg" src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402292029940.png" alt="20.集合"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="original">编程语言</span><span class="original">Java</span><a class="unvisited-post" href="/post/9e25cba9.html">未读</a></div><a class="article-title" href="/post/9e25cba9.html" title="20.集合">20.集合</a></div><break></break><div class="article-meta-wrap"><span class="article-meta tags"><a class="article-meta__tags" href="/tags/Java/" onclick="event.stopPropagation();"><span class="tags-punctuation"><i class="solitude fa-solid fa-hashtag"></i>Java</span></a></span><span class="post-meta-date"><time datetime="2023-12-30T05:09:59.000Z"></time></span></div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/post/a920af81.html')"><div class="post_cover"><a href="/post/a920af81.html" title="19.常用工具类"><img class="post_bg" src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402292029940.png" alt="19.常用工具类"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="original">编程语言</span><span class="original">Java</span><a class="unvisited-post" href="/post/a920af81.html">未读</a></div><a class="article-title" href="/post/a920af81.html" title="19.常用工具类">19.常用工具类</a></div><break></break><div class="article-meta-wrap"><span class="article-meta tags"><a class="article-meta__tags" href="/tags/Java/" onclick="event.stopPropagation();"><span class="tags-punctuation"><i class="solitude fa-solid fa-hashtag"></i>Java</span></a></span><span class="post-meta-date"><time datetime="2023-12-30T05:07:47.000Z"></time></span></div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/post/fe7ab1f0.html')"><div class="post_cover"><a href="/post/fe7ab1f0.html" title="18.接口"><img class="post_bg" src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402292029940.png" alt="18.接口"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="original">编程语言</span><span class="original">Java</span><a class="unvisited-post" href="/post/fe7ab1f0.html">未读</a></div><a class="article-title" href="/post/fe7ab1f0.html" title="18.接口">18.接口</a></div><break></break><div class="article-meta-wrap"><span class="article-meta tags"><a class="article-meta__tags" href="/tags/Java/" onclick="event.stopPropagation();"><span class="tags-punctuation"><i class="solitude fa-solid fa-hashtag"></i>Java</span></a></span><span class="post-meta-date"><time datetime="2023-12-30T05:07:26.000Z"></time></span></div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/post/76fa8c0d.html')"><div class="post_cover"><a href="/post/76fa8c0d.html" title="17.面向对象"><img class="post_bg" src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402292029940.png" alt="17.面向对象"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="original">编程语言</span><span class="original">Java</span><a class="unvisited-post" href="/post/76fa8c0d.html">未读</a></div><a class="article-title" href="/post/76fa8c0d.html" title="17.面向对象">17.面向对象</a></div><break></break><div class="article-meta-wrap"><span class="article-meta tags"><a class="article-meta__tags" href="/tags/Java/" onclick="event.stopPropagation();"><span class="tags-punctuation"><i class="solitude fa-solid fa-hashtag"></i>Java</span></a></span><span class="post-meta-date"><time datetime="2023-12-30T05:06:59.000Z"></time></span></div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/post/86a3300e.html')"><div class="post_cover"><a href="/post/86a3300e.html" title="16.数组"><img class="post_bg" src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402292029940.png" alt="16.数组"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="original">编程语言</span><span class="original">Java</span><a class="unvisited-post" href="/post/86a3300e.html">未读</a></div><a class="article-title" href="/post/86a3300e.html" title="16.数组">16.数组</a></div><break></break><div class="article-meta-wrap"><span class="article-meta tags"><a class="article-meta__tags" href="/tags/Java/" onclick="event.stopPropagation();"><span class="tags-punctuation"><i class="solitude fa-solid fa-hashtag"></i>Java</span></a></span><span class="post-meta-date"><time datetime="2023-12-30T05:06:39.000Z"></time></span></div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/post/6749388c.html')"><div class="post_cover"><a href="/post/6749388c.html" title="15.方法（函数）"><img class="post_bg" src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402292029940.png" alt="15.方法（函数）"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="original">编程语言</span><span class="original">Java</span><a class="unvisited-post" href="/post/6749388c.html">未读</a></div><a class="article-title" href="/post/6749388c.html" title="15.方法（函数）">15.方法（函数）</a></div><break></break><div class="article-meta-wrap"><span class="article-meta tags"><a class="article-meta__tags" href="/tags/Java/" onclick="event.stopPropagation();"><span class="tags-punctuation"><i class="solitude fa-solid fa-hashtag"></i>Java</span></a></span><span class="post-meta-date"><time datetime="2023-12-30T05:06:10.000Z"></time></span></div></div></div><!-- pagination--><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/"><i class="solitude fa-solid fa-chevron-left"></i> <div class="pagination_tips_prev">上一页</div></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/"><div class="pagination_tips_next">下一页</div> <i class="solitude fa-solid fa-chevron-right"></i></a><div class="toPageGroup"><input id="toPageText" oninput="value=value.replace(/[^0-9]/g,'')" maxlength="3" title="跳转到指定页面" onkeyup="if (this.value === '0') this.value = ''"><a id="toPageButton" onclick="sco.toPage()"><i class="solitude fa-solid fa-angles-right"></i></a></div></div></nav></div></div><!-- aside--><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><div class="author-info__top-group"><div class="author-info__sayhi" id="author-info__sayhi" onclick="sco.changeSayHelloText()">sayhello.morning</div></div></div><div class="avatar-img-group"><img class="avatar-img" alt="头像" src="/img/avatar.avif"></div><div class="author-info__description_group"><div class="author-info__description">Here is my personal blog</div><div class="author-info__description2">I believe you can find knowledge and tutorials here that will be useful to you.</div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/about/"><div class="author-info__name">星仔</div><div class="author-info__desc">珍惜当下 不负此生</div></a><div class="card-info-social-icons is-center"></div></div></div></div><div class="sticky_layout"><div class="card-widget card-tags card-archives card-webinfo card-allinfo"><div class="webinfo"><div class="webinfo-item"><div class="webinfo-item-title"><i class="item-icon fa-solid fa-folder-closed"></i><div class="item-name">文章总数 :</div></div><div class="item-count">72</div></div><div class="webinfo-item"><div class="webinfo-item-title"><i class="item-icon solitude fa-solid fa-calendar-days"></i><div class="item-name">建站天数 :</div></div><div class="item-count" id="runtimeshow"></div></div><div class="webinfo-item"><div class="webinfo-item-title"><i class="item-icon solitude fa-solid fa-rotate-left"></i><div class="item-name">最后更新 :</div></div><time class="item-count" datetime="2024-08-02T03:32:59.752Z"></time></div></div></div></div></div></main><footer id="footer"><div id="footer_deal"></div><div id="st-footer"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div class="copyright">© 2023 - 2024 By&nbsp;<a class="footer-bar-link" href="/">星仔</a></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/everfu/hexo-theme-solitude" alt="Theme">Theme</a></div></div></div></footer></div><!-- right_menu--><!-- inject body--><div><script src="/js/utils.js?v=2.0.6"></script><script src="/js/main.js?v=2.0.6"></script><script src="/js/third_party/waterfall.min.js?v=2.0.6"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pjax/0.2.8/pjax.min.js"></script><script src="/js/third_party/universe.min.js?v=2.0.6"></script><script>dark()
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/node-snackbar/0.1.16/snackbar.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script><div class="js-pjax"></div></div><!-- pjax--><script>const pjax = new Pjax({
-    elements: 'a:not([target="_blank"])',
-    selectors: ['title','#body-wrap','#site-config','meta[name="description"]','.js-pjax','meta[property^="og:"]','#config-diff'],
-    cacheBust: false,
-    analytics: false,
-    scrollRestoration: false
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.1.1"><link rel="alternate" href="/atom.xml" title="星仔人生录" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746544.png"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/" accesskey="h"><div class="title">星仔人生录</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 归档</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 百宝箱</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746543.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746543.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/51%E5%8D%95%E7%89%87%E6%9C%BA/" style="font-size: 1.05rem;">51单片机<sup>9</sup></a><a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 1.05rem;">C语言<sup>13</sup></a><a href="/tags/GitHub-Picgo%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/" style="font-size: 1.05rem;">GitHub+Picgo图片上传<sup>1</sup></a><a href="/tags/GitHub%E5%90%8C%E6%AD%A5gitee%E5%B9%B6%E9%83%A8%E7%BD%B2/" style="font-size: 1.05rem;">GitHub同步gitee并部署<sup>1</sup></a><a href="/tags/Java/" style="font-size: 1.05rem;">Java<sup>26</sup></a><a href="/tags/%E4%BA%91%E5%9B%BE%E5%BA%8A/" style="font-size: 1.05rem;">云图床<sup>1</sup></a><a href="/tags/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" style="font-size: 1.05rem;">博客使用手册<sup>1</sup></a><a href="/tags/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7/" style="font-size: 1.05rem;">图片压缩在线工具<sup>1</sup></a><a href="/tags/%E5%B0%8F%E7%8B%BC%E6%AF%AB%E8%BE%93%E5%85%A5%E6%B3%95/" style="font-size: 1.05rem;">小狼毫输入法<sup>1</sup></a><a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 1.05rem;">插件<sup>1</sup></a><a href="/tags/%E6%94%BF%E6%B2%BB/" style="font-size: 1.05rem;">政治<sup>14</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E4%B8%8E%E5%9F%BA%E7%A1%80/" style="font-size: 1.05rem;">计算机程序与基础<sup>1</sup></a><a href="/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2/" style="font-size: 1.05rem;">资源搜索<sup>1</sup></a><a href="/tags/%E9%AD%94%E6%B3%95/" style="font-size: 1.05rem;">魔法<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/08/"><span class="card-archive-list-date">八月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">七月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">四月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">8</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">三月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/02/"><span class="card-archive-list-date">二月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/01/"><span class="card-archive-list-date">一月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/12/"><span class="card-archive-list-date">十二月 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">54</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav></header><main id="blog-container"><div class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div id="categoryBar"><div class="category-bar" id="category-bar"><div id="catalog-bar"><div id="catalog-list"><div class="catalog-list-item" id="首页"><a href="/">首页</a></div>
+    <div class="catalog-list-item" id="/categories/51单片机/">
+      <a href="/categories/51单片机/">
+        51单片机
+      </a>
+    </div>
+    
+    <div class="catalog-list-item" id="/categories/编程语言/">
+      <a href="/categories/编程语言/">
+        编程语言
+      </a>
+    </div>
+    
+    <div class="catalog-list-item" id="/categories/编程语言/C语言/">
+      <a href="/categories/编程语言/C语言/">
+        C语言
+      </a>
+    </div>
+    
+    <div class="catalog-list-item" id="/categories/编程语言/Java/">
+      <a href="/categories/编程语言/Java/">
+        Java
+      </a>
+    </div>
+    
+    <div class="catalog-list-item" id="/categories/技术教程/">
+      <a href="/categories/技术教程/">
+        技术教程
+      </a>
+    </div>
+    
+    <div class="catalog-list-item" id="/categories/升学/">
+      <a href="/categories/升学/">
+        升学
+      </a>
+    </div>
+    </div><div class="category-bar-next" id="category-bar-next" onclick="anzhiyu.scrollCategoryBarToRight()"><i class="anzhiyufont anzhiyu-icon-angle-double-right"></i></div><a class="catalog-more" href="/categories/">更多</a></div></div></div><div class="recent-post-item lastestpost-item" onclick="pjax.loadUrl('/post/fbc0ae86.html')"><div class="post_cover left"><a href="/post/fbc0ae86.html" title="24.多线程" style="display: flex;height: 100%;"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746543.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402292029940.png" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746543.jpg'" alt="24.多线程" style="pointer-events: none"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><div class="article-categories-original">编程语言</div><div class="article-categories-original">Java</div><a class="unvisited-post" href="/post/fbc0ae86.html" title="24.多线程">未读</a></div><a class="article-title" href="/post/fbc0ae86.html" title="24.多线程">24.多线程</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2023-12-30T05:11:26.000Z" title="发表于 2023-12-30 13:11:26" time="2023-12-30 13:11:26">2023-12-30</time><time class="time_hidden" datetime="2024-03-01T14:49:02.328Z" title="更新于 2024-03-01 22:49:02" time="2024-03-01 22:49:02">2024-03-01</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/Java/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Java</span></a></span></div><div class="content">知识点一：Thread线程基础有一个场景：在一个程序中即可以玩游戏又可以播放音乐？
+以现在编程手段而言 —》 提供编程结构【顺序、分支、循环】
+代码是要遵守顺序执行，代码需要遵守从上至下逐行执行，利用分支和循环修改循环执行一些操作，选择性执行某代码或者是让某些代码重复执行，无论如何操作代码依旧要顺序执行，没有办法让两段代交替执行
+
+
+此时Java为了解决这样的问题，提供一个操作，这个操作就叫做线程，可以在代码中使用多线程形式来完成这个操作
+PS:现在电脑基本上都是多核CPU，所以每个人电脑上运行线程程序结果可能都不一样，这是一个非常正常现象，多线程运行时是一个不可预知状态，程序猿可以通过代码干预线程运行，以达到我们运行效果
+知识点二：并行和并发这两个概念在宏观的角度而言他们是一样(相似)的，但是在微观的角度而言他们是有区别
+
+
+并行就是同时执行，并发就是在交替执行
+&ensp;&ensp;&ensp;&ensp;在操作系统中，安装了很多程序，并发指的是在一段时间内宏观上多个程序同时执行，这个在单个CPU系统中，每一个时刻只有一个程序执行，即微观上这些程序是分时交替的执行，只不过给人感觉 ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/post/3e1167ea.html')"><div class="post_cover left"><a href="/post/3e1167ea.html" title="23.IO流" style="display: flex;height: 100%;"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746543.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402292029940.png" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746543.jpg'" alt="23.IO流" style="pointer-events: none"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><div class="article-categories-original">编程语言</div><div class="article-categories-original">Java</div><a class="unvisited-post" href="/post/3e1167ea.html" title="23.IO流">未读</a></div><a class="article-title" href="/post/3e1167ea.html" title="23.IO流">23.IO流</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2023-12-30T05:11:05.000Z" title="发表于 2023-12-30 13:11:05" time="2023-12-30 13:11:05">2023-12-30</time><time class="time_hidden" datetime="2024-03-01T12:21:57.526Z" title="更新于 2024-03-01 20:21:57" time="2024-03-01 20:21:57">2024-03-01</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/Java/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Java</span></a></span></div><div class="content">知识点一：概念PS：IO很简单主要记忆的就是IO中进行文件读写操作
+Java中IO流的作用：IO流在Java中作用就是将内存中数据写入到磁盘进行保存，程序运行时将磁盘中的数据读取到内存中进行处理
+在Java中在没有学习到IO流之前，在程序中所有处理数据都是在内存中进行存储的【栈和堆】，在内存中存储的好处在于【执行效率高】坏处【数据无法持久存储】
+内存中存储体现在于【DVD操作系统】：所有数据使用集合存储之后依旧是在内存中进行存储，每次执行程序时，都会在内存从新初始化集合中数据，这样就造成无论你如何修改集合中数据，只要程序重新运行数据使用保持原始状态
+所以需要将内存中数据保存到磁盘中进行持久保存【将内存中数据写成文件中内容进行保存操作】，如果将内存中数据写到磁盘中，就需要使用到IO流【使用输出流】，数据存存储在磁盘文件之后，程序运行时需要加载磁盘中文件数据【将磁盘文件中内容读取到内存中进行处理】，如果需要将磁盘中文件内读取到内存中，就需要使用到IO流【使用输入流】
+什么是IO流？
+I —》 顾名思义 —》IN(读取、输入、读入) –》将磁盘中文件内容读取到内存中
+O—》 顾名思义 –》O ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/post/8f9052f9.html')"><div class="post_cover left"><a href="/post/8f9052f9.html" title="22.File类和递归" style="display: flex;height: 100%;"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746543.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402292029940.png" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746543.jpg'" alt="22.File类和递归" style="pointer-events: none"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><div class="article-categories-original">编程语言</div><div class="article-categories-original">Java</div><a class="unvisited-post" href="/post/8f9052f9.html" title="22.File类和递归">未读</a></div><a class="article-title" href="/post/8f9052f9.html" title="22.File类和递归">22.File类和递归</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2023-12-30T05:10:44.000Z" title="发表于 2023-12-30 13:10:44" time="2023-12-30 13:10:44">2023-12-30</time><time class="time_hidden" datetime="2024-03-01T11:40:12.142Z" title="更新于 2024-03-01 19:40:12" time="2024-03-01 19:40:12">2024-03-01</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/Java/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Java</span></a></span></div><div class="content">知识点一：File类File类是Java中专门提供给代码进行对文件系统中【操作系统】文件夹或文件进行操作的类，这个File类中提供【创建、删除、重命名、判断文件状态、检查文件的属性】等等功能，就可以通过File对象将系统中文件或文件夹以，面向对象的方式进行操作，File类只能对文件进行管理操作，对于文件内容存储数据File类是无法进行操作
+File类就是Java中表示系统文件或系统文件夹的一个抽象，可以提供一个【路径】将路径所描述文件或文件夹具体化，并且提供File类中给提供方法对文件或文件进行操作
+PS：建议尽量不在C盘判断进行操作，极少部分电脑对C盘操作是需要
+权限【管理员权限】
+文件和文件夹路径和问题？
+操作系统中文件或文件夹的路径分为两种**”绝对路径”和”相对路径”**
+PS:这里以windows系统为例：
+绝对路径： 是从系统盘符开始路径是绝对路径【在开发尽量少用】
+windows系统中对绝对路径的路径分隔符号是【\】
+1C:\File类\笔记 --》绝对路径
+
+这里问题在于，在Java代码中【\】是转义字符，针对\后的字母进行转义操作，所以为了避免提供绝路径出现歧义在编写 ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/post/a24af109.html')"><div class="post_cover left"><a href="/post/a24af109.html" title="21.异常" style="display: flex;height: 100%;"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746543.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402292029940.png" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746543.jpg'" alt="21.异常" style="pointer-events: none"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><div class="article-categories-original">编程语言</div><div class="article-categories-original">Java</div><a class="unvisited-post" href="/post/a24af109.html" title="21.异常">未读</a></div><a class="article-title" href="/post/a24af109.html" title="21.异常">21.异常</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2023-12-30T05:10:22.000Z" title="发表于 2023-12-30 13:10:22" time="2023-12-30 13:10:22">2023-12-30</time><time class="time_hidden" datetime="2024-03-01T11:33:25.642Z" title="更新于 2024-03-01 19:33:25" time="2024-03-01 19:33:25">2024-03-01</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/Java/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Java</span></a></span></div><div class="content">知识点一：概念程序在运行的过程出现的错误，称之为异常
+知识点二：异常处理的重要性如果异常不处理，那么就会终止java虚拟机的运行。意味着出现异常后面的代码就不会再执行了
+123//程序出现异常，但是没有处理System.out.println(10/0);System.out.println(&quot;处理了么&quot;);     //不会运行
+
+知识点三：异常的分类
+Throwable (异常的父类)
+Error(错误) 内存溢出、硬件等等(程序员无法通过程序解决)
+Exception(异常)		需要程序处理
+运行期异常(未检查) 	程序运行期间出现的异常		RuntimeException
+不是必须处理
+举例：空指针异常、类转换异常、数组下标越界异常、输入异常、下标越界异常等
+
+
+编译期异常 (受检)		程序在编译期间出现的异常	Exception
+必须处理
+举例：ParseException InterruptedException等
+
+
+
+
+
+
+
+知识点四：异常处理1、捕获异常(主动处理)try、catch、finally
+语法
+123456789101112try&#1 ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/post/9e25cba9.html')"><div class="post_cover left"><a href="/post/9e25cba9.html" title="20.集合" style="display: flex;height: 100%;"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746543.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402292029940.png" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746543.jpg'" alt="20.集合" style="pointer-events: none"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><div class="article-categories-original">编程语言</div><div class="article-categories-original">Java</div><a class="unvisited-post" href="/post/9e25cba9.html" title="20.集合">未读</a></div><a class="article-title" href="/post/9e25cba9.html" title="20.集合">20.集合</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2023-12-30T05:09:59.000Z" title="发表于 2023-12-30 13:09:59" time="2023-12-30 13:09:59">2023-12-30</time><time class="time_hidden" datetime="2024-02-29T12:37:21.380Z" title="更新于 2024-02-29 20:37:21" time="2024-02-29 20:37:21">2024-02-29</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/Java/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Java</span></a></span></div><div class="content">知识点一：集合框架1、概念&ensp;&ensp;&ensp;&ensp;如果处理一套通用逻辑就提供一个自定义封装处理数组的类，那么开发中可能会需要提供N这样类，问题在于需要自行完成操作，Java也发现这个问题，所有为了让程序猿可以更加的便捷的对数据进行操作，无需向数组一样提供【增删改查】的自定义实现，Java提供一个集合框架，便于程序猿对数据进行存储与管理操作
+什么是集合框架？
+&ensp;&ensp;&ensp;&ensp;Java中的集合框架其实就是对【数据结构】的封装，这个封装中提供了一些常用方法，可方便操作数据，无需程序猿自定定义操作，只需要调用封装方法就可以完成对存在集合中数据【增删改查】集合其实就是对数据结构一种封装，所以之前sun公司就把集合放置到一个统一包中进行管理【java.util】包
+什么是数据结构？
+&ensp;&ensp;&ensp;&ensp;数据结构其实就是计算机，组织和存储数据形式
+&ensp;&ensp;&ensp;&ensp;数据结构是指相互之间存在一种或多种特定关系的数据集合
+&ensp;&ensp;&ensp;&ensp;通常情况下，精心选择数 ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/post/a920af81.html')"><div class="post_cover left"><a href="/post/a920af81.html" title="19.常用工具类" style="display: flex;height: 100%;"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746543.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402292029940.png" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746543.jpg'" alt="19.常用工具类" style="pointer-events: none"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><div class="article-categories-original">编程语言</div><div class="article-categories-original">Java</div><a class="unvisited-post" href="/post/a920af81.html" title="19.常用工具类">未读</a></div><a class="article-title" href="/post/a920af81.html" title="19.常用工具类">19.常用工具类</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2023-12-30T05:07:47.000Z" title="发表于 2023-12-30 13:07:47" time="2023-12-30 13:07:47">2023-12-30</time><time class="time_hidden" datetime="2024-02-29T12:30:38.502Z" title="更新于 2024-02-29 20:30:38" time="2024-02-29 20:30:38">2024-02-29</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/Java/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Java</span></a></span></div><div class="content">知识点一：String类1、String的创建1）直接赋值12String s1 = &quot;abcd&quot;;System.out.println(s1);
+
+2）通过构造方法1234567891011//String s2 = new String();   //相当于String s2 = &quot;&quot;;String s2 = new String(&quot;123&quot;);  //相当于String s2 = &quot;123&quot;;System.out.println(s2);//3.将一个byte类型数组作为数据参数传递到字符串中进行存储//ps:将byte数组中数据转换成对应ASCII码---》如果ASCII码范围就会转换为Unicode【万国码】//Unicode对应中国文字编码 ---》 UTF-8String str2 = new String(new byte[]&#123;97,98,99&#125;);System.out.println(&quot;str2 = &quot;+str2);//4.将一个char类型数组作为 ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/post/fe7ab1f0.html')"><div class="post_cover left"><a href="/post/fe7ab1f0.html" title="18.接口" style="display: flex;height: 100%;"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746543.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402292029940.png" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746543.jpg'" alt="18.接口" style="pointer-events: none"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><div class="article-categories-original">编程语言</div><div class="article-categories-original">Java</div><a class="unvisited-post" href="/post/fe7ab1f0.html" title="18.接口">未读</a></div><a class="article-title" href="/post/fe7ab1f0.html" title="18.接口">18.接口</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2023-12-30T05:07:26.000Z" title="发表于 2023-12-30 13:07:26" time="2023-12-30 13:07:26">2023-12-30</time><time class="time_hidden" datetime="2024-02-29T12:30:32.379Z" title="更新于 2024-02-29 20:30:32" time="2024-02-29 20:30:32">2024-02-29</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/Java/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Java</span></a></span></div><div class="content">PS：接口是一个特殊的抽象父类
+什么接口?
+&ensp;&ensp;&ensp;&ensp;硬件接口：指的是两个硬件设备之间的链接方式,硬件接口即包括物理上接口，还包括逻辑上接口(数据传输协议)
+&ensp;&ensp;&ensp;&ensp;软件接口：程序代码,特殊的抽象类，表示的是一种规范,是具有N个方法的特征的集合在封装的时候，手机大多会留有一个接口，这个接口就会出现充电和耳机要遵守的一些协议,,通过这些协议可以约束数据可以通过什么样的方式来进行数据的传输(多使用在硬件的方向)
+&ensp;&ensp;&ensp;&ensp;在Java中，接口表示一种规范&#x2F;约束&#x2F;要求实现者必须遵守该规范,约束使用这该怎么做，Java中接口还可以解决一些非继承关系的问题例如：飞机是会飞的,鸟也是可以飞,这两个类有一个共同行为叫做飞，飞机和鸟能是一个共同的父类？不能，即想约束飞机和鸟必须存在飞的这个方法，又不提供继承的这种样式操作，接口就可以做到这个效果
+&ensp;&ensp;&ensp;&ensp;接口无非就是在设计一套要遵守的行为规范，但是这个规范并没有强加联系(彼此之间不 ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/post/76fa8c0d.html')"><div class="post_cover left"><a href="/post/76fa8c0d.html" title="17.面向对象" style="display: flex;height: 100%;"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746543.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402292029940.png" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746543.jpg'" alt="17.面向对象" style="pointer-events: none"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><div class="article-categories-original">编程语言</div><div class="article-categories-original">Java</div><a class="unvisited-post" href="/post/76fa8c0d.html" title="17.面向对象">未读</a></div><a class="article-title" href="/post/76fa8c0d.html" title="17.面向对象">17.面向对象</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2023-12-30T05:06:59.000Z" title="发表于 2023-12-30 13:06:59" time="2023-12-30 13:06:59">2023-12-30</time><time class="time_hidden" datetime="2024-02-29T12:30:26.160Z" title="更新于 2024-02-29 20:30:26" time="2024-02-29 20:30:26">2024-02-29</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/Java/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Java</span></a></span></div><div class="content">知识点一：面向对象的编程思想面向对象程序设计(Object Oriented Programming) 
+什么是编程思想？
+思想：其实思想就是你大脑中对某些事务的思维，通过思维完成这些事务
+编程思想：就是你大脑中对代码中需要完成思维逻辑所提供一种思维，编程思想就是编程思路
+在开发中我们接触比较经典编程思想一种面向过程和一种面向对象
+PS：面向对象编程思想是从面向过程转变而来，所以面向对象中也会掺杂着面向过程
+面向过程的编程思想：
+强调的是过程，必须清楚每一个步骤，然后按照步骤一步一步去实现
+面向对象的编程思想：
+强调的是对象，通过调用对象的行为来实现功能，从而完成需求，面向对象并不是我们自己一步一步去操作实现
+举例对比说明：
+同样是处理洗衣服事物
+&ensp;&ensp;&ensp;&ensp;面向过程角度而言：把衣服脱下来 –》找一个盆–》放点洗衣粉–》加点水–》浸泡10分钟–》揉一揉–》清洗衣服–》拧干–》晾起来
+&ensp;&ensp;&ensp;&ensp;面向对象角度而言：把衣服托脱下来 –》找一个对象【女朋友&#x2F;男朋友】让他去完成【洗】
+同样是要吃饭
+&ensp;& ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/post/86a3300e.html')"><div class="post_cover left"><a href="/post/86a3300e.html" title="16.数组" style="display: flex;height: 100%;"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746543.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402292029940.png" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746543.jpg'" alt="16.数组" style="pointer-events: none"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><div class="article-categories-original">编程语言</div><div class="article-categories-original">Java</div><a class="unvisited-post" href="/post/86a3300e.html" title="16.数组">未读</a></div><a class="article-title" href="/post/86a3300e.html" title="16.数组">16.数组</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2023-12-30T05:06:39.000Z" title="发表于 2023-12-30 13:06:39" time="2023-12-30 13:06:39">2023-12-30</time><time class="time_hidden" datetime="2024-02-29T12:30:22.278Z" title="更新于 2024-02-29 20:30:22" time="2024-02-29 20:30:22">2024-02-29</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/Java/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Java</span></a></span></div><div class="content">知识点一：数组的概念数组在内存中是一块 连续的空间，可以保存 相同类型 多个数据的容器 
+知识点二：数组的特点数组中保存数据必须是相同的数据类型
+数组是定长的（数组一旦定义不能改变长度）
+知识点三：数组的创建1、静态初始化语法12345语法1：数据类型[] 数组名 = &#123;数据1,数据2,...&#125;;语法2：数据类型 数组名[] = &#123;数据1,数据2,...&#125;;语法3：数据类型[] 数组名 = new 数据类型[]&#123;数据1,数据2,...&#125;;
+
+
+
+2、动态初始化语法12语法1: 数据类型[] 数组名 = new 数据类型[数组的长度];语法2: 数据类型 数组名[] = new 数据类型[数组的长度];
+
+123456789101112int[] arr = new int[3];//存数据arr[0] = 11;arr[1] = 22;arr[2] = 33;//取数据System.out.println(&quot;第二个元素为：&quot;+arr[1]);System.out.println(&quot;第三个元素为：& ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/post/6749388c.html')"><div class="post_cover left"><a href="/post/6749388c.html" title="15.方法（函数）" style="display: flex;height: 100%;"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746543.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402292029940.png" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746543.jpg'" alt="15.方法（函数）" style="pointer-events: none"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><div class="article-categories-original">编程语言</div><div class="article-categories-original">Java</div><a class="unvisited-post" href="/post/6749388c.html" title="15.方法（函数）">未读</a></div><a class="article-title" href="/post/6749388c.html" title="15.方法（函数）">15.方法（函数）</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2023-12-30T05:06:10.000Z" title="发表于 2023-12-30 13:06:10" time="2023-12-30 13:06:10">2023-12-30</time><time class="time_hidden" datetime="2024-02-29T12:30:18.822Z" title="更新于 2024-02-29 20:30:18" time="2024-02-29 20:30:18">2024-02-29</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/Java/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Java</span></a></span></div><div class="content">之前学习了循环结构【while 、do-while、for】，学习循环的目的解决一些重复性执行的操作代码，但是循环解决的重复性从操作是有要求：【解决重复问题（操作代码）是有一定次数要求（有规律），语法格式近乎与是相同（循环变量赋初值、循环条件、循环变量的自增或自减、重复操作的语句【重复执行的代码】）】，循环是否可以解决所有的重复性问题？
+例如：开发一款游戏，游戏“坦克大战”，这里必然有一个操作“发射炮弹”【玩游戏的时候，炮弹发射是一直执行】，坦克大战是分为“玩家”和“电脑”，也就意味着“玩家“和“电脑”的坦克都要发射炮弹，如果让两者都来完成这个操作呢？ —》可以将发射炮弹的操作分别对“玩家”和“电脑”提供发射炮弹的实现【同样发射炮弹的代码要实现两遍】
+PS：方法：其实就是一段功能代码封装，只要利用方法中提供名字，就可以在任意位置执行一段功能代码
+将一段功能代码写入到一个代码块中【大括号括起来就是代码块】，这个代码块有一个名字，每次要执行这段功能代码的时候只需要写入这个名字，就可以完成代码的执行 —》这个就是方法
+
+
+PS：方法与函数的关系
+在某些语言中，对于上述概念所描述封装的操作叫做 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/#content-inner"><i class="anzhiyufont anzhiyu-icon-chevron-left fa-fw" style="font-weight: inherit; font-size: 1rem;"></i><div class="pagination_tips_prev">上页</div></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#content-inner">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/#content-inner">8</a><a class="extend next" rel="next" href="/page/4/#content-inner"><div class="pagination_tips_next">下页</div><i style="font-weight: inherit; font-size: 1rem;" class="anzhiyufont anzhiyu-icon-chevron-right fa-fw"></i></a><div class="toPageGroup"><input id="toPageText" oninput="value=value.replace(/[^0-9]/g,'')" maxlength="3" onkeyup="this.value=this.value.replace(/[^u4e00-u9fa5w]/g,'')" aria-label="toPage"><a id="toPageButton" onclick="anzhiyu.toPage()"><i class="anzhiyufont anzhiyu-icon-angles-right" style="font-weight: inherit; font-size: 1rem;"></i></a></div></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746543.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746544.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746543.jpg&quot;" data-lazy-src="https://emotion.acs.pw/emotion/Arcaea/184064226.png" alt="status"/></div></div><div class="author-info__description">分享科技与生活</div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/"><h1 class="author-info__name">星仔</h1><div class="author-info__desc">珍惜当下 不负此生</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://blog.csdn.net/qq_65047384?spm=1000.2115.3001.5343" target="_blank" title="CSDN"><i class="anzhiyufont anzhiyu-icon-copyright"></i></a><a class="social-icon faa-parent animated-hover" href="https://www.bilibili.com/" target="_blank" title="BiliBili"><i class="anzhiyufont anzhiyu-icon-bilibili"></i></a></div></div></div></div><div class="card-widget anzhiyu-right-widget" id="card-wechat" onclick="null"><div id="flip-wrapper"><div id="flip-content"><div class="face" style="background: url(https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402211941485.webp) center center / 100% no-repeat"></div><div class="back face" style="background: url(https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402212031772.png) center center / 100% no-repeat"></div></div></div></div><div class="sticky_layout"><div class="card-widget"><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/51%E5%8D%95%E7%89%87%E6%9C%BA/" style="font-size: 1.05rem;">51单片机<sup>9</sup></a><a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 1.05rem;">C语言<sup>13</sup></a><a href="/tags/GitHub-Picgo%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/" style="font-size: 1.05rem;">GitHub+Picgo图片上传<sup>1</sup></a><a href="/tags/GitHub%E5%90%8C%E6%AD%A5gitee%E5%B9%B6%E9%83%A8%E7%BD%B2/" style="font-size: 1.05rem;">GitHub同步gitee并部署<sup>1</sup></a><a href="/tags/Java/" style="font-size: 1.05rem;">Java<sup>26</sup></a><a href="/tags/%E4%BA%91%E5%9B%BE%E5%BA%8A/" style="font-size: 1.05rem;">云图床<sup>1</sup></a><a href="/tags/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" style="font-size: 1.05rem;">博客使用手册<sup>1</sup></a><a href="/tags/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7/" style="font-size: 1.05rem;">图片压缩在线工具<sup>1</sup></a><a href="/tags/%E5%B0%8F%E7%8B%BC%E6%AF%AB%E8%BE%93%E5%85%A5%E6%B3%95/" style="font-size: 1.05rem;">小狼毫输入法<sup>1</sup></a><a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 1.05rem;">插件<sup>1</sup></a><a href="/tags/%E6%94%BF%E6%B2%BB/" style="font-size: 1.05rem;">政治<sup>14</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E4%B8%8E%E5%9F%BA%E7%A1%80/" style="font-size: 1.05rem;">计算机程序与基础<sup>1</sup></a><a href="/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2/" style="font-size: 1.05rem;">资源搜索<sup>1</sup></a><a href="/tags/%E9%AD%94%E6%B3%95/" style="font-size: 1.05rem;">魔法<sup>1</sup></a></div></div><hr/><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/08/"><span class="card-archive-list-date">八月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">七月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">四月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">8</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">三月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/02/"><span class="card-archive-list-date">二月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/01/"><span class="card-archive-list-date">一月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/12/"><span class="card-archive-list-date">十二月 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">54</span><span>篇</span></div></a></li></ul></div><hr/><div class="card-webinfo"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-item-title"><i class="anzhiyufont anzhiyu-icon-file-lines"></i><div class="item-name">文章总数 :</div></div><div class="item-count">72</div></div><div class="webinfo-item"><div class="webinfo-item-title"><i class="anzhiyufont anzhiyu-icon-stopwatch"></i><div class="item-name">建站天数 :</div></div><div class="item-count" id="runtimeshow" data-publishDate="2023-07-11T16:00:00.000Z"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></div></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2020 - 2024 By <a class="footer-bar-link" href="/" title="星仔" target="_blank">星仔</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">72</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">6</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://blog.csdn.net/qq_65047384?spm=1000.2115.3001.5343" title="CSDN"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746543.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="CSDN"/><span class="back-menu-item-text">CSDN</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://www.bilibili.com/" title="哔哩哔哩"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746543.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="哔哩哔哩"/><span class="back-menu-item-text">哔哩哔哩</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">资源下载</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://www.sscha.com/" title="商查查"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402201746543.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="商查查"/><span class="back-menu-item-text">商查查</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 归档</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 百宝箱</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/51%E5%8D%95%E7%89%87%E6%9C%BA/" style="font-size: 0.88rem;">51单片机<sup>9</sup></a><a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 0.88rem;">C语言<sup>13</sup></a><a href="/tags/GitHub-Picgo%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/" style="font-size: 0.88rem;">GitHub+Picgo图片上传<sup>1</sup></a><a href="/tags/GitHub%E5%90%8C%E6%AD%A5gitee%E5%B9%B6%E9%83%A8%E7%BD%B2/" style="font-size: 0.88rem;">GitHub同步gitee并部署<sup>1</sup></a><a href="/tags/Java/" style="font-size: 0.88rem;">Java<sup>26</sup></a><a href="/tags/%E4%BA%91%E5%9B%BE%E5%BA%8A/" style="font-size: 0.88rem;">云图床<sup>1</sup></a><a href="/tags/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" style="font-size: 0.88rem;">博客使用手册<sup>1</sup></a><a href="/tags/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7/" style="font-size: 0.88rem;">图片压缩在线工具<sup>1</sup></a><a href="/tags/%E5%B0%8F%E7%8B%BC%E6%AF%AB%E8%BE%93%E5%85%A5%E6%B3%95/" style="font-size: 0.88rem;">小狼毫输入法<sup>1</sup></a><a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 0.88rem;">插件<sup>1</sup></a><a href="/tags/%E6%94%BF%E6%B2%BB/" style="font-size: 0.88rem;">政治<sup>14</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E4%B8%8E%E5%9F%BA%E7%A1%80/" style="font-size: 0.88rem;">计算机程序与基础<sup>1</sup></a><a href="/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2/" style="font-size: 0.88rem;">资源搜索<sup>1</sup></a><a href="/tags/%E9%AD%94%E6%B3%95/" style="font-size: 0.88rem;">魔法<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="is-center" id="loading-database"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-pulse-icon"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("04/01/2021 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2020 By 安知鱼 V1.6.12",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 星仔 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="anzhiyu"></div><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><script src="/js/anzhiyu/right_click_menu.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><script async src="https://www.iconfont.cn/collections/detail?cid=44481"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
 })
 
-document.querySelectorAll('script[data-pjax]').forEach(item => {
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
     const newScript = document.createElement('script')
     const content = item.text || item.textContent || item.innerHTML || ""
     Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
     newScript.appendChild(document.createTextNode(content))
     item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
 })
 
-document.addEventListener('pjax:complete', () => {
-    window.refreshFn()
-
-    document.querySelectorAll('script[data-pjax]').forEach(item => {
-        const newScript = document.createElement('script')
-        const content = item.text || item.textContent || item.innerHTML || ""
-        Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
-        newScript.appendChild(document.createTextNode(content))
-        item.parentNode.replaceChild(newScript, item)
-    })
-
-    GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
-
-})
-
-document.addEventListener('pjax:error', (e) => {
-    if (e.request.status === 404) {
-        pjax.loadUrl('/404.html')
-    }
-})</script><!-- theme--><script>initTheme = () => {
-    let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-    const cachedMode = utils.saveToLocal.get('theme');
-    if (cachedMode === undefined) {
-        const nowMode =
-            isDarkMode ? 'dark' : 'light'
-        document.documentElement.setAttribute('data-theme', nowMode);
-    } else {
-        document.documentElement.setAttribute('data-theme', cachedMode);
-    }
-    typeof rm === 'object' && rm.mode(cachedMode === 'dark' && isDarkMode)
-}
-initTheme()</script><!-- google adsense--><!-- search--><!-- Tianli-Talk--><!-- music--></body></html><script>const posts=["post/93c966f3.html","post/8212ff63.html","post/f5fba2c3.html","post/f736596e.html","post/2e5216dd.html","post/81b224e1.html","post/74750b31.html","post/f8f1fb54.html","post/c6b2a2fd.html","post/def84ee6.html","post/1f293ccb.html","post/79959306.html","post/5f6e69ef.html","post/d20e58f5.html","post/6c3f8114.html","post/2ec6e870.html","post/812d49a5.html","post/df95841.html","post/f1dbdc9f.html","post/5883a4af.html","post/fbc0ae86.html","post/3e1167ea.html","post/8f9052f9.html","post/a24af109.html","post/9e25cba9.html","post/a920af81.html","post/fe7ab1f0.html","post/76fa8c0d.html","post/86a3300e.html","post/6749388c.html","post/43a94ea1.html","post/ded373.html","post/74955f2f.html","post/75e75572.html","post/6a2c2bbd.html","post/5c2f197a.html","post/4a789563.html","post/c46a5cd3.html","post/1b3fd879.html","post/26831432.html","post/3cc3da73.html","post/fbc82303.html","post/3ccb602.html","post/ca0fcd03.html","post/6ac19130.html","post/8c9aed93.html","post/66861d4a.html","post/de801b7c.html","post/ee96f7a4.html","post/a8259cf6.html","post/2d17b932.html","post/57da986d.html","post/a0b1b02e.html","post/72b1c7b1.html","post/17bf8c68.html","post/7821492f.html","post/cf0c504a.html","post/e2246be5.html","post/9b06d854.html","post/5bdb5548.html","post/bec635c1.html","post/3ec1fd44.html","post/b70ae4e7.html","post/804ae251.html","post/df718222.html","post/3b48d11a.html","post/7422213c.html","post/6271a51c.html","post/6f76074c.html","post/8212f318.html","post/cb87841d.html","post/b2041fc0.html"];function toRandomPost(){ pjax.loadUrl(GLOBAL_CONFIG.root+posts[Math.floor(Math.random()*posts.length)]); }</script>
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
