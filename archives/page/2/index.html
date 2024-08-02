@@ -1,0 +1,173 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>文章 | 星仔人生录</title><noscript>开启JavaScript才能访问本站哦~</noscript><link rel="icon" href="/img/pwa/favicon.ico"><!-- index.css--><link rel="stylesheet" href="/css/index.css?v=2.0.6"><!-- inject head--><link rel="canonical" href="http://example.com/archives/page/2/"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"><!-- aplayer--><!-- swiper--><!-- fancybox ui--><!-- katex--><!-- Open Graph--><meta name="description" content="分享科技与生活"><!-- pwa--><meta name="apple-mobile-web-app-capable" content="星仔人生录"><meta name="theme-color" content="var(--efu-main)"><meta name="apple-mobile-web-app-status-bar-style" content="var(--efu-main)"><link rel="bookmark" href="/img/pwa/favicon.ico"><link rel="apple-touch-icon" href="/img/pwa/favicon.ico" sizes="180x180"><script>console.log(' %c Solitude %c ' + '2.0.6' + ' %c https://github.com/everfu/hexo-theme-solitude',
+    'background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff',
+    'background:#ff9a9a ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff',
+    'background:unset ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff')
+</script><script>(()=>{
+        const saveToLocal = {
+            set: function setWithExpiry(key, value, ttl) {
+                if (ttl === 0)
+                    return
+                const now = new Date()
+                const expiryDay = ttl * 86400000
+                const item = {
+                    value: value,
+                    expiry: now.getTime() + expiryDay
+                }
+                localStorage.setItem(key, JSON.stringify(item))
+            },
+            get: function getWithExpiry(key) {
+                const itemStr = localStorage.getItem(key)
+    
+                if (!itemStr) {
+                    return undefined
+                }
+                const item = JSON.parse(itemStr)
+                const now = new Date()
+    
+                if (now.getTime() > item.expiry) {
+                    localStorage.removeItem(key)
+                    return undefined
+                }
+                return item.value
+            }
+        };
+        window.utils = {
+            saveToLocal: saveToLocal,
+            getCSS: (url, id = false) => new Promise((resolve, reject) => {
+              const link = document.createElement('link')
+              link.rel = 'stylesheet'
+              link.href = url
+              if (id) link.id = id
+              link.onerror = reject
+              link.onload = link.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                link.onload = link.onreadystatechange = null
+                resolve()
+              }
+              document.head.appendChild(link)
+            }),
+            getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+              const script = document.createElement('script')
+              script.src = url
+              script.async = true
+              script.onerror = reject
+              script.onload = script.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                script.onload = script.onreadystatechange = null
+                resolve()
+              }
+    
+              Object.keys(attr).forEach(key => {
+                script.setAttribute(key, attr[key])
+              })
+    
+              document.head.appendChild(script)
+            }),
+            addGlobalFn: (key, fn, name = false, parent = window) => {
+                const globalFn = parent.globalFn || {}
+                const keyObj = globalFn[key] || {}
+        
+                if (name && keyObj[name]) return
+        
+                name = name || Object.keys(keyObj).length
+                keyObj[name] = fn
+                globalFn[key] = keyObj
+                parent.globalFn = globalFn
+            },
+        }
+    })()</script><!-- global head--><script>const GLOBAL_CONFIG = {
+    root: '/',
+    algolia: undefined,
+    localsearch: undefined,
+    runtime: '2023-04-20 00:00:00',
+    lazyload: {
+        enable: false,
+        error: '/img/error_load.avif'
+    },
+    copyright: {"limit":50,"author":"作者: 星仔","link":"链接: ","source":"来源: 星仔人生录","info":"著作权归作者所有。 商业转载请联系作者获得授权，非商业转载请注明出处。"},
+    highlight: {"limit":200,"expand":true,"copy":true,"syntax":"highlight.js"},
+    randomlink: false,
+    lang: {"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"day":"天前","hour":"小时前","just":"刚刚","min":"分钟前","month":"个月前"},"day":" 天","f12":"开发者模式已打开，请遵循GPL协议。","totalk":"无需删除空行，直接输入评论即可"},
+    aside: {
+        sayhello: {
+            morning: "✨ Good morning. It's a new day",
+            noon: "It's time for a midday break",
+            afternoon: "Tea time. 🍵",
+            night: "early bedtime",
+            goodnight: "Good night 😴",
+        },
+        sayhello2: [],
+        sayhello3: {
+            prefix: '好久不见，',
+            back: '欢迎再次回来，',
+        },
+    },
+    covercolor: {
+        enable: false
+    },
+    comment: false,
+    lightbox: 'null',
+    post_ai: false,
+    right_menu: false,
+    lure: false,
+    expire: false,
+};</script><!-- page-config head--><script id="config-diff">var PAGE_CONFIG = {
+    is_post: false,
+    is_page: true,
+    is_home: false,
+    page: '',
+    toc: false,
+    comment: false,
+    ai_text: false
+}</script><meta name="generator" content="Hexo 7.1.1"><link rel="alternate" href="/atom.xml" title="星仔人生录" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head><body id="body"><!-- universe--><canvas id="universe"></canvas><!-- background img--><!-- loading--><!-- console--><!-- sidebar--><div id="sidebar" style="zoom: 1;"><div id="menu-mask" style="display: none;"></div><div id="sidebar-menus"><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">72</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a></div></div></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><span class="darkmode_switchbutton menu-child" onclick="sco.switchDarkMode()"><i class="solitude fa-solid fa-circle-half-stroke"></i><span>显示模式</span></span></div><span class="sidebar-menu-item-title">标签</span><div class="card-widget card-tags card-archives card-webinfo card-allinfo"><div class="card-tag-cloud"><a href="/tags/51%E5%8D%95%E7%89%87%E6%9C%BA/">51单片机<sup>9</sup></a><a href="/tags/C%E8%AF%AD%E8%A8%80/">C语言<sup>13</sup></a><a href="/tags/Java/">Java<sup>26</sup></a><a href="/tags/GitHub-Picgo%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/">GitHub+Picgo图片上传<sup>1</sup></a><a href="/tags/GitHub%E5%90%8C%E6%AD%A5gitee%E5%B9%B6%E9%83%A8%E7%BD%B2/">GitHub同步gitee并部署<sup>1</sup></a><a href="/tags/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/">博客使用手册<sup>1</sup></a><a href="/tags/%E4%BA%91%E5%9B%BE%E5%BA%8A/">云图床<sup>1</sup></a><a href="/tags/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7/">图片压缩在线工具<sup>1</sup></a><a href="/tags/%E6%8F%92%E4%BB%B6/">插件<sup>1</sup></a><a href="/tags/%E5%B0%8F%E7%8B%BC%E6%AF%AB%E8%BE%93%E5%85%A5%E6%B3%95/">小狼毫输入法<sup>1</sup></a><a href="/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2/">资源搜索<sup>1</sup></a><a href="/tags/%E9%AD%94%E6%B3%95/">魔法<sup>1</sup></a><a href="/tags/%E6%94%BF%E6%B2%BB/">政治<sup>14</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E4%B8%8E%E5%9F%BA%E7%A1%80/">计算机程序与基础<sup>1</sup></a></div></div></div></div><!-- keyboard--><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav class="show" id="nav"><div id="nav-group"><div id="blog_name"><a id="site-name" href="/" title="返回博客主页"><span class="title">Solitude</span><i class="solitude fa-solid fa-home"></i></a></div><div id="page-name-mask"><div id="page-name"><a id="page-name-text" onclick="sco.toTop()">文章</a></div></div><div id="menus"></div><div id="nav-left"></div><div id="nav-right"><div class="nav-button" id="nav-totop" onclick="sco.toTop()"><a class="totopbtn"><i class="solitude fa-solid fa-arrow-up"></i><span id="percent">0</span></a></div><div id="toggle-menu"><a class="site-page"><i class="solitude fa-solid fa-bars"></i></a></div></div></div></nav></header><main class="layout" id="content-inner"><div id="archive"><div class="article-sort-title">文章<sup>72</sup></div><div class="article-sort"><div class="article-sort-item year">2024</div><div class="article-sort-item"><a class="article-sort-item-img" href="/post/1f293ccb.html" title="资源搜索网址"><img src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402202024840.jpg" alt="资源搜索网址"></a><div class="article-sort-item-info"><a class="article-sort-item-title" href="/post/1f293ccb.html" title="资源搜索网址" onclick="window.event.cancelBubble=true;">资源搜索网址</a><div class="article-sort-item-tags"><a class="article-meta__tags" href="/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2/" onclick="window.event.cancelBubble=true;"><span class="tags-punctuation"><i class="solitude fa-solid fa-hashtag"></i>资源搜索</span></a></div></div></div><div class="article-sort-item"><a class="article-sort-item-img" href="/post/79959306.html" title="图片压缩在线工具"><img src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402202023429.jpg" alt="图片压缩在线工具"></a><div class="article-sort-item-info"><a class="article-sort-item-title" href="/post/79959306.html" title="图片压缩在线工具" onclick="window.event.cancelBubble=true;">图片压缩在线工具</a><div class="article-sort-item-tags"><a class="article-meta__tags" href="/tags/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7/" onclick="window.event.cancelBubble=true;"><span class="tags-punctuation"><i class="solitude fa-solid fa-hashtag"></i>图片压缩在线工具</span></a></div></div></div><div class="article-sort-item"><a class="article-sort-item-img" href="/post/5f6e69ef.html" title="小狼毫配置"><img src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402202022038.jpg" alt="小狼毫配置"></a><div class="article-sort-item-info"><a class="article-sort-item-title" href="/post/5f6e69ef.html" title="小狼毫配置" onclick="window.event.cancelBubble=true;">小狼毫配置</a><div class="article-sort-item-tags"><a class="article-meta__tags" href="/tags/%E5%B0%8F%E7%8B%BC%E6%AF%AB%E8%BE%93%E5%85%A5%E6%B3%95/" onclick="window.event.cancelBubble=true;"><span class="tags-punctuation"><i class="solitude fa-solid fa-hashtag"></i>小狼毫输入法</span></a></div></div></div><div class="article-sort-item"><a class="article-sort-item-img" href="/post/d20e58f5.html" title="GitHub+Picgo图片上传"><img src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402202021957.jpg" alt="GitHub+Picgo图片上传"></a><div class="article-sort-item-info"><a class="article-sort-item-title" href="/post/d20e58f5.html" title="GitHub+Picgo图片上传" onclick="window.event.cancelBubble=true;">GitHub+Picgo图片上传</a><div class="article-sort-item-tags"><a class="article-meta__tags" href="/tags/GitHub-Picgo%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/" onclick="window.event.cancelBubble=true;"><span class="tags-punctuation"><i class="solitude fa-solid fa-hashtag"></i>GitHub+Picgo图片上传</span></a></div></div></div><div class="article-sort-item"><a class="article-sort-item-img" href="/post/6c3f8114.html" title="GitHub同步gitee并部署"><img src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402282249686.jpg" alt="GitHub同步gitee并部署"></a><div class="article-sort-item-info"><a class="article-sort-item-title" href="/post/6c3f8114.html" title="GitHub同步gitee并部署" onclick="window.event.cancelBubble=true;">GitHub同步gitee并部署</a><div class="article-sort-item-tags"><a class="article-meta__tags" href="/tags/GitHub%E5%90%8C%E6%AD%A5gitee%E5%B9%B6%E9%83%A8%E7%BD%B2/" onclick="window.event.cancelBubble=true;"><span class="tags-punctuation"><i class="solitude fa-solid fa-hashtag"></i>GitHub同步gitee并部署</span></a></div></div></div><div class="article-sort-item"><a class="article-sort-item-img" href="/post/2ec6e870.html" title="云图床"><img src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402202040414.png" alt="云图床"></a><div class="article-sort-item-info"><a class="article-sort-item-title" href="/post/2ec6e870.html" title="云图床" onclick="window.event.cancelBubble=true;">云图床</a><div class="article-sort-item-tags"><a class="article-meta__tags" href="/tags/%E4%BA%91%E5%9B%BE%E5%BA%8A/" onclick="window.event.cancelBubble=true;"><span class="tags-punctuation"><i class="solitude fa-solid fa-hashtag"></i>云图床</span></a></div></div></div><div class="article-sort-item"><a class="article-sort-item-img" href="/post/812d49a5.html" title="魔法"><img src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402222210610.png" alt="魔法"></a><div class="article-sort-item-info"><a class="article-sort-item-title" href="/post/812d49a5.html" title="魔法" onclick="window.event.cancelBubble=true;">魔法</a><div class="article-sort-item-tags"><a class="article-meta__tags" href="/tags/%E9%AD%94%E6%B3%95/" onclick="window.event.cancelBubble=true;"><span class="tags-punctuation"><i class="solitude fa-solid fa-hashtag"></i>魔法</span></a></div></div></div><div class="article-sort-item"><a class="article-sort-item-img" href="/post/df95841.html" title="计算机备考"><img src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402202017282.png" alt="计算机备考"></a><div class="article-sort-item-info"><a class="article-sort-item-title" href="/post/df95841.html" title="计算机备考" onclick="window.event.cancelBubble=true;">计算机备考</a><div class="article-sort-item-tags"><a class="article-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E4%B8%8E%E5%9F%BA%E7%A1%80/" onclick="window.event.cancelBubble=true;"><span class="tags-punctuation"><i class="solitude fa-solid fa-hashtag"></i>计算机程序与基础</span></a></div></div></div><div class="article-sort-item year">2023</div><div class="article-sort-item"><a class="article-sort-item-img" href="/post/f1dbdc9f.html" title="25.网络编程"><img src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402292029940.png" alt="25.网络编程"></a><div class="article-sort-item-info"><a class="article-sort-item-title" href="/post/f1dbdc9f.html" title="25.网络编程" onclick="window.event.cancelBubble=true;">25.网络编程</a><div class="article-sort-item-tags"><a class="article-meta__tags" href="/tags/Java/" onclick="window.event.cancelBubble=true;"><span class="tags-punctuation"><i class="solitude fa-solid fa-hashtag"></i>Java</span></a></div></div></div><div class="article-sort-item"><a class="article-sort-item-img" href="/post/5883a4af.html" title="26.反射"><img src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202402292029940.png" alt="26.反射"></a><div class="article-sort-item-info"><a class="article-sort-item-title" href="/post/5883a4af.html" title="26.反射" onclick="window.event.cancelBubble=true;">26.反射</a><div class="article-sort-item-tags"><a class="article-meta__tags" href="/tags/Java/" onclick="window.event.cancelBubble=true;"><span class="tags-punctuation"><i class="solitude fa-solid fa-hashtag"></i>Java</span></a></div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/archives/"><i class="solitude fa-solid fa-chevron-left"></i> <div class="pagination_tips_prev">上一页</div></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/8/">8</a><a class="extend next" rel="next" href="/archives/page/3/"><div class="pagination_tips_next">下一页</div> <i class="solitude fa-solid fa-chevron-right"></i></a><div class="toPageGroup"><input id="toPageText" oninput="value=value.replace(/[^0-9]/g,'')" maxlength="3" title="跳转到指定页面" onkeyup="if (this.value === '0') this.value = ''"><a id="toPageButton" onclick="sco.toPage()"><i class="solitude fa-solid fa-angles-right"></i></a></div></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><div class="author-info__top-group"><div class="author-info__sayhi" id="author-info__sayhi" onclick="sco.changeSayHelloText()">sayhello.morning</div></div></div><div class="avatar-img-group"><img class="avatar-img" alt="头像" src="/img/avatar.avif"></div><div class="author-info__description_group"><div class="author-info__description">Here is my personal blog</div><div class="author-info__description2">I believe you can find knowledge and tutorials here that will be useful to you.</div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/about/"><div class="author-info__name">星仔</div><div class="author-info__desc">珍惜当下 不负此生</div></a><div class="card-info-social-icons is-center"></div></div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="solitude fa-solid fa-map"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/93c966f3.html" title="电机控制"><img alt="电机控制" src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202404082146483.jpg"></a><div class="content"><span class="title" href="/post/93c966f3.html" title="电机控制">电机控制</span><span class="article-recent_post_categories" href="/post/93c966f3.html">51单片机</span></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/8212ff63.html" title="单总线通信"><img alt="单总线通信" src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202404082146483.jpg"></a><div class="content"><span class="title" href="/post/8212ff63.html" title="单总线通信">单总线通信</span><span class="article-recent_post_categories" href="/post/8212ff63.html">51单片机</span></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/f5fba2c3.html" title="6.IIC通信"><img alt="6.IIC通信" src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202404082146483.jpg"></a><div class="content"><span class="title" href="/post/f5fba2c3.html" title="6.IIC通信">6.IIC通信</span><span class="article-recent_post_categories" href="/post/f5fba2c3.html">51单片机</span></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/f736596e.html" title="串口"><img alt="串口" src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202404082146483.jpg"></a><div class="content"><span class="title" href="/post/f736596e.html" title="串口">串口</span><span class="article-recent_post_categories" href="/post/f736596e.html">51单片机</span></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/2e5216dd.html" title="定时器/计数器"><img alt="定时器/计数器" src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic/img/202404082146483.jpg"></a><div class="content"><span class="title" href="/post/2e5216dd.html" title="定时器/计数器">定时器/计数器</span><span class="article-recent_post_categories" href="/post/2e5216dd.html">51单片机</span></div></div></div></div><div class="card-widget card-tags card-archives card-webinfo card-allinfo"><div class="webinfo"><div class="webinfo-item"><div class="webinfo-item-title"><i class="item-icon fa-solid fa-folder-closed"></i><div class="item-name">文章总数 :</div></div><div class="item-count">72</div></div><div class="webinfo-item"><div class="webinfo-item-title"><i class="item-icon solitude fa-solid fa-calendar-days"></i><div class="item-name">建站天数 :</div></div><div class="item-count" id="runtimeshow"></div></div><div class="webinfo-item"><div class="webinfo-item-title"><i class="item-icon solitude fa-solid fa-rotate-left"></i><div class="item-name">最后更新 :</div></div><time class="item-count" datetime="2024-08-02T07:03:11.700Z"></time></div></div></div></div></div></main><footer id="footer"><div id="footer_deal"></div><div id="st-footer"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div class="copyright">© 2023 - 2024 By&nbsp;<a class="footer-bar-link" href="/">星仔</a></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/everfu/hexo-theme-solitude" alt="Theme">Theme</a></div></div></div></footer></div><!-- right_menu--><!-- inject body--><div><script src="/js/utils.js?v=2.0.6"></script><script src="/js/main.js?v=2.0.6"></script><script src="/js/third_party/waterfall.min.js?v=2.0.6"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pjax/0.2.8/pjax.min.js"></script><script src="/js/third_party/universe.min.js?v=2.0.6"></script><script>dark()
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/node-snackbar/0.1.16/snackbar.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script><div class="js-pjax"></div></div><!-- pjax--><script>const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: ['title','#body-wrap','#site-config','meta[name="description"]','.js-pjax','meta[property^="og:"]','#config-diff'],
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+})
+
+document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+})
+
+document.addEventListener('pjax:complete', () => {
+    window.refreshFn()
+
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+        const newScript = document.createElement('script')
+        const content = item.text || item.textContent || item.innerHTML || ""
+        Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+        newScript.appendChild(document.createTextNode(content))
+        item.parentNode.replaceChild(newScript, item)
+    })
+
+    GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+        pjax.loadUrl('/404.html')
+    }
+})</script><!-- theme--><script>initTheme = () => {
+    let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const cachedMode = utils.saveToLocal.get('theme');
+    if (cachedMode === undefined) {
+        const nowMode =
+            isDarkMode ? 'dark' : 'light'
+        document.documentElement.setAttribute('data-theme', nowMode);
+    } else {
+        document.documentElement.setAttribute('data-theme', cachedMode);
+    }
+    typeof rm === 'object' && rm.mode(cachedMode === 'dark' && isDarkMode)
+}
+initTheme()</script><!-- google adsense--><!-- search--><!-- Tianli-Talk--><!-- music--></body></html><script>const posts=["post/93c966f3.html","post/8212ff63.html","post/f5fba2c3.html","post/f736596e.html","post/2e5216dd.html","post/81b224e1.html","post/74750b31.html","post/f8f1fb54.html","post/c6b2a2fd.html","post/def84ee6.html","post/1f293ccb.html","post/79959306.html","post/5f6e69ef.html","post/d20e58f5.html","post/6c3f8114.html","post/2ec6e870.html","post/812d49a5.html","post/df95841.html","post/f1dbdc9f.html","post/5883a4af.html","post/fbc0ae86.html","post/3e1167ea.html","post/8f9052f9.html","post/a24af109.html","post/9e25cba9.html","post/a920af81.html","post/fe7ab1f0.html","post/76fa8c0d.html","post/86a3300e.html","post/6749388c.html","post/43a94ea1.html","post/ded373.html","post/74955f2f.html","post/75e75572.html","post/6a2c2bbd.html","post/5c2f197a.html","post/4a789563.html","post/c46a5cd3.html","post/1b3fd879.html","post/26831432.html","post/3cc3da73.html","post/fbc82303.html","post/3ccb602.html","post/ca0fcd03.html","post/6ac19130.html","post/8c9aed93.html","post/66861d4a.html","post/de801b7c.html","post/ee96f7a4.html","post/a8259cf6.html","post/2d17b932.html","post/57da986d.html","post/a0b1b02e.html","post/72b1c7b1.html","post/17bf8c68.html","post/7821492f.html","post/cf0c504a.html","post/e2246be5.html","post/9b06d854.html","post/5bdb5548.html","post/bec635c1.html","post/3ec1fd44.html","post/b70ae4e7.html","post/804ae251.html","post/df718222.html","post/3b48d11a.html","post/7422213c.html","post/6271a51c.html","post/6f76074c.html","post/8212f318.html","post/cb87841d.html","post/b2041fc0.html"];function toRandomPost(){ pjax.loadUrl(GLOBAL_CONFIG.root+posts[Math.floor(Math.random()*posts.length)]); }</script>
