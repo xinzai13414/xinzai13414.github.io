@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-08-13T09:55:02.828Z</updated>
+  <updated>2024-08-13T09:55:24.530Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://example.com/post/f5fba2c3.html"/>
     <id>http://example.com/post/f5fba2c3.html</id>
     <published>2024-08-13T09:53:28.000Z</published>
-    <updated>2024-08-13T09:55:02.828Z</updated>
+    <updated>2024-08-13T09:55:24.530Z</updated>
     
     
     
@@ -38,7 +38,7 @@
     <link href="http://example.com/post/6928cd3f.html"/>
     <id>http://example.com/post/6928cd3f.html</id>
     <published>2024-08-12T15:37:39.000Z</published>
-    <updated>2024-08-13T00:55:48.768Z</updated>
+    <updated>2024-08-13T09:55:24.530Z</updated>
     
     <content type="html"><![CDATA[<p>1.打开word，将 无法初始化visual basic 的弹出框先关掉</p><p>2.点击左上角的 <code>文件</code></p><img src="https://cdn.d3iiz.top/gh/xinzai-x/MyPic1/img/202408122338415.png" alt="点击文件" style="zoom:50%;"><p>3.点击帮助栏目下的 <code>选项</code>，然后点击 <code>加载项</code></p><img src="https://cdn.d3iiz.top/gh/xinzai-x/MyPic1/img/202408122338308.png" alt="进入选项" style="zoom:50%;"><hr><img src="https://cdn.d3iiz.top/gh/xinzai-x/MyPic1/img/202408122339744.png" alt="进入设置" style="zoom:50%;"><p>4.在弹出的com加载项中将所有带√的选项都去掉(此处不是删除，只是将<code>√去掉</code>)，最后点击<code>确定</code>，重新打开文件</p><img src="https://cdn.d3iiz.top/gh/xinzai-x/MyPic1/img/202408122339947.png" alt="取消" style="zoom:50%;"><p>5.大功告成</p>]]></content>
     
