@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-08-15T14:22:48.181Z</updated>
+  <updated>2024-08-15T14:23:31.020Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://example.com/post/52772f76.html"/>
     <id>http://example.com/post/52772f76.html</id>
     <published>2024-08-15T14:22:06.000Z</published>
-    <updated>2024-08-15T14:22:48.181Z</updated>
+    <updated>2024-08-15T14:23:31.020Z</updated>
     
     
     
@@ -38,7 +38,7 @@
     <link href="http://example.com/post/f0812160.html"/>
     <id>http://example.com/post/f0812160.html</id>
     <published>2024-08-15T14:05:49.000Z</published>
-    <updated>2024-08-15T14:07:51.942Z</updated>
+    <updated>2024-08-15T14:23:31.018Z</updated>
     
     <content type="html"><![CDATA[<h1 id="理论"><a href="#理论" class="headerlink" title="理论"></a><center>理论</center></h1><p>防止系统跑飞</p><p>喂狗：让值为0</p><p>分类：独立看门狗(IWDG,0到100喂狗)、窗口看门狗(60到100喂狗)，值(60)，顶值(100)</p><h1 id="代码编写"><a href="#代码编写" class="headerlink" title="代码编写"></a><center>代码编写</center></h1><p>按键喂狗</p><h2 id="独立看门狗配置"><a href="#独立看门狗配置" class="headerlink" title="独立看门狗配置"></a><center>独立看门狗配置</center></h2><p>超过10s，复位</p><img src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic1/img/202408152206794.png" alt="看门狗配置" style="zoom:50%;"><hr><p>注意时钟：</p><img src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic1/img/202408152207964.png" alt="看门狗时钟" style="zoom:50%;"><p>按键、LED灯配置参考：<a href="https://d3iiz.top/post/adb202b7">链接</a></p><h2 id="Cube-IDE代码"><a href="#Cube-IDE代码" class="headerlink" title="Cube IDE代码"></a><center>Cube IDE代码</center></h2><p>mian.c</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* USER CODE BEGIN 2 */</span></span><br><span class="line"><span class="comment">//超过时间看门狗触发复位闪灯</span></span><br><span class="line">HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, <span class="number">0</span>);<span class="comment">//93行</span></span><br><span class="line">HAL_Delay(<span class="number">500</span>);</span><br><span class="line">HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, <span class="number">1</span>);</span><br><span class="line"><span class="comment">/* USER CODE END 2 */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(HAL_GPIO_ReadPin(Key1_GPIO_Port, Key1_Pin) == <span class="number">0</span>)<span class="comment">//102行,while里</span></span><br><span class="line">HAL_IWDG_Refresh(&amp;hiwdg);</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -379,29 +379,6 @@
   </entry>
   
   <entry>
-    <title>DHT11dht11.c(18) error C174 return-expression on void-function</title>
-    <link href="http://example.com/post/c4236caa.html"/>
-    <id>http://example.com/post/c4236caa.html</id>
-    <published>2024-08-03T08:46:17.000Z</published>
-    <updated>2024-08-15T12:51:29.504Z</updated>
-    
-    <content type="html"><![CDATA[<p>表示在函数dht11.c的第18行，有一个返回表达式出现在了一个返回类型为void的函数中。在C语言中，如果一个函数的声明或定义中指定了返回类型为void，那么这个函数不能有任何返回值。</p><p>​    要解决这个问题，你需要检查dht11.c文件中第18行的代码，确保没有返回值。如果该行代码确实需要返回一个值，那么你需要将该函数的返回类型修改为非void类型</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;表示在函数dht11.c的第18行，有一个返回表达式出现在了一个返回类型为void的函数中。在C语言中，如果一个函数的声明或定义中指定了返回类型为void，那么这个函数不能有任何返回值。&lt;/p&gt;
-&lt;p&gt;​    要解决这个问题，你需要检查dht11.c文件中第18行的代码，</summary>
-      
-    
-    
-    
-    <category term="错误记录" scheme="http://example.com/categories/%E9%94%99%E8%AF%AF%E8%AE%B0%E5%BD%95/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>STM32烧录的时候报错：Error :Flash Download failed -“Cortex-M3“</title>
     <link href="http://example.com/post/63d3dd68.html"/>
     <id>http://example.com/post/63d3dd68.html</id>
@@ -417,6 +394,29 @@
 &lt;img src=&quot;https://cdn.jsdelivr.net/gh/xinzai-x/MyPic1/img/202408031700928.png&quot; alt=&quot;img&quot; style=&quot;zoom:50%;&quot;&gt;
 
 &lt;p&gt;按图</summary>
+      
+    
+    
+    
+    <category term="错误记录" scheme="http://example.com/categories/%E9%94%99%E8%AF%AF%E8%AE%B0%E5%BD%95/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>DHT11dht11.c(18) error C174 return-expression on void-function</title>
+    <link href="http://example.com/post/c4236caa.html"/>
+    <id>http://example.com/post/c4236caa.html</id>
+    <published>2024-08-03T08:46:17.000Z</published>
+    <updated>2024-08-15T12:51:29.504Z</updated>
+    
+    <content type="html"><![CDATA[<p>表示在函数dht11.c的第18行，有一个返回表达式出现在了一个返回类型为void的函数中。在C语言中，如果一个函数的声明或定义中指定了返回类型为void，那么这个函数不能有任何返回值。</p><p>​    要解决这个问题，你需要检查dht11.c文件中第18行的代码，确保没有返回值。如果该行代码确实需要返回一个值，那么你需要将该函数的返回类型修改为非void类型</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;表示在函数dht11.c的第18行，有一个返回表达式出现在了一个返回类型为void的函数中。在C语言中，如果一个函数的声明或定义中指定了返回类型为void，那么这个函数不能有任何返回值。&lt;/p&gt;
+&lt;p&gt;​    要解决这个问题，你需要检查dht11.c文件中第18行的代码，</summary>
       
     
     
