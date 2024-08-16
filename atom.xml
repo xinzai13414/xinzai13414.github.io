@@ -407,7 +407,7 @@
     <link href="http://example.com/post/c4236caa.html"/>
     <id>http://example.com/post/c4236caa.html</id>
     <published>2024-08-03T08:46:17.000Z</published>
-    <updated>2024-08-15T12:51:29.504Z</updated>
+    <updated>2024-08-16T13:43:43.792Z</updated>
     
     <content type="html"><![CDATA[<p>表示在函数dht11.c的第18行，有一个返回表达式出现在了一个返回类型为void的函数中。在C语言中，如果一个函数的声明或定义中指定了返回类型为void，那么这个函数不能有任何返回值。</p><p>​    要解决这个问题，你需要检查dht11.c文件中第18行的代码，确保没有返回值。如果该行代码确实需要返回一个值，那么你需要将该函数的返回类型修改为非void类型</p>]]></content>
     
