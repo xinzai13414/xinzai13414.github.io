@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-08-16T12:54:28.358Z</updated>
+  <updated>2024-08-17T08:29:13.169Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,12 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>11.SPI通信</title>
+    <link href="http://example.com/post/bd740709.html"/>
+    <id>http://example.com/post/bd740709.html</id>
+    <published>2024-08-17T08:28:32.000Z</published>
+    <updated>2024-08-17T08:29:13.169Z</updated>
+    
+    
+    
+    
+    <category term="32单片机" scheme="http://example.com/categories/32%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+    
+    <category term="32单片机" scheme="http://example.com/tags/32%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
     <title>10.DMA</title>
     <link href="http://example.com/post/acb77072.html"/>
     <id>http://example.com/post/acb77072.html</id>
     <published>2024-08-16T07:49:08.000Z</published>
-    <updated>2024-08-16T12:54:28.358Z</updated>
+    <updated>2024-08-17T08:25:47.717Z</updated>
     
+    <content type="html"><![CDATA[<h1 id="理论"><a href="#理论" class="headerlink" title="理论"></a><center>理论</center></h1><p>12个通道：DMA1（7）DMA2（5）</p><img src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic1/img/202408171625579.webp" alt="通道" style="zoom:50%;"><p>方向：存储器和存储器间(DMA_MEMORY_TO_MEMORY)、外设到存储器(DMA_PERIPH_TO_MEMORY)、存储器到外设(DMA_MEMORY_TO_PERIPH)</p><p>闪存、 SRAM、外设的SRAM、 APB1、 APB2和AHB外设均可作为访问的源和目标</p><p>数据宽度：字节(Byte 8)、半字(Half Word 16)、全字(Word 32)</p><p>可编程的数据传输数目： 0 ~ 65535</p><p>若可编程的数据传输数目为10，数据宽度为字节，半字，全字<br>传输总数据大小：10字节，20字节，40字节</p><p>若传输总数据大小与实际传输不符，会让传输标志(__HAL_DMA_GET_FLAG) ≠ 0</p><h1 id="代码编写"><a href="#代码编写" class="headerlink" title="代码编写"></a><center>代码编写</center></h1><p>存储器和存储器间实验</p><h2 id="DMA配置"><a href="#DMA配置" class="headerlink" title="DMA配置"></a><center>DMA配置</center></h2><img src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic1/img/202408171625497.webp" alt="DMA配置" style="zoom:50%;"><p>串口初始化参考：<a href="https://blog.csdn.net/qq_65047384/article/details/140912225">链接</a></p><h2 id="Cube-IDE代码"><a href="#Cube-IDE代码" class="headerlink" title="Cube IDE代码"></a><center>Cube IDE代码</center></h2><p>main.c</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* USER CODE BEGIN PD */</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> BUFF_SIZE 100<span class="comment">//37行</span></span></span><br><span class="line"><span class="comment">/* USER CODE END PD */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* USER CODE BEGIN PV */</span></span><br><span class="line"><span class="type">uint8_t</span> SRC_Buff[BUFF_SIZE];<span class="comment">//48行</span></span><br><span class="line"><span class="type">uint8_t</span> DEST_Buff[BUFF_SIZE];</span><br><span class="line"><span class="comment">/* USER CODE END PV */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; BUFF_SIZE; i++)<span class="comment">//95行</span></span><br><span class="line">  SRC_Buff[i] = i+<span class="number">2</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* 参数1：指向 DMA_HandleTypeDef 结构的指针，该结构包含指向 DMA 通道的配置信息</span></span><br><span class="line"><span class="comment">* 参数2：源内存缓冲区地址</span></span><br><span class="line"><span class="comment">* 参数3：目标内存缓冲区地址，参数4：从源传输到目标的数据长度</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">HAL_DMA_Start(&amp;hdma_memtomem_dma1_channel1, (<span class="type">uint32_t</span>)SRC_Buff, (<span class="type">uint32_t</span>)DEST_Buff, BUFF_SIZE);</span><br><span class="line"></span><br><span class="line"><span class="comment">//while里,111行</span></span><br><span class="line">hdma_memtomem_dma1_channel1.Instance-&gt;CNDTR = BUFF_SIZE;<span class="comment">//可编程的数据传输数目：CNDTR</span></span><br><span class="line">__HAL_DMA_ENABLE(&amp;hdma_memtomem_dma1_channel1);<span class="comment">//启用指定的 DMA 通道</span></span><br><span class="line"><span class="keyword">while</span>(__HAL_DMA_GET_FLAG(&amp;hdma_memtomem_dma1_channel1, DMA_FLAG_TC1) == <span class="number">0</span>);<span class="comment">//判断是否传输完成</span></span><br><span class="line">HAL_UART_Transmit(&amp;huart1, DEST_Buff, BUFF_SIZE, <span class="number">100</span>);<span class="comment">//串口发送据</span></span><br><span class="line">__HAL_DMA_CLEAR_FLAG(&amp;hdma_memtomem_dma1_channel1, DMA_FLAG_TC1);<span class="comment">//清楚标志</span></span><br><span class="line">__HAL_DMA_DISABLE(&amp;hdma_memtomem_dma1_channel1);<span class="comment">//禁用指定的 DMA 通道</span></span><br><span class="line">HAL_Delay(<span class="number">1000</span>);</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;理论&quot;&gt;&lt;a href=&quot;#理论&quot; class=&quot;headerlink&quot; title=&quot;理论&quot;&gt;&lt;/a&gt;&lt;center&gt;理论&lt;/center&gt;&lt;/h1&gt;&lt;p&gt;12个通道：DMA1（7）DMA2（5）&lt;/p&gt;
+&lt;img src=&quot;https://cdn.jsdeli</summary>
+      
     
     
     
@@ -471,30 +496,6 @@
     
     
     <category term="IDE与MX库文件安装路径自定义设置" scheme="http://example.com/tags/IDE%E4%B8%8EMX%E5%BA%93%E6%96%87%E4%BB%B6%E5%AE%89%E8%A3%85%E8%B7%AF%E5%BE%84%E8%87%AA%E5%AE%9A%E4%B9%89%E8%AE%BE%E7%BD%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>新电脑 个人博客迁移</title>
-    <link href="http://example.com/post/362c3b0.html"/>
-    <id>http://example.com/post/362c3b0.html</id>
-    <published>2024-08-03T08:29:18.000Z</published>
-    <updated>2024-08-16T09:54:40.814Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="安装和配置所需要的软件"><a href="#安装和配置所需要的软件" class="headerlink" title="安装和配置所需要的软件"></a><center>安装和配置所需要的软件</center></h1><p>安装Git 客户端，安装过程省略，一般默认下一步</p><p>​    下载地址：<a href="https://git-scm.com/downloads">Git客户端</a></p><p>​    这个无脑下一步即可无需配置</p><p>安装node JS，安装过程省略，一般默认下一步</p><p>​    下载地址：<a href="https://nodejs.cn/download/">node JS</a></p><p>​    配置看这位大佬教程：<a href="https://blog.csdn.net/qq_38514863/article/details/123145473">地址</a></p><p>拷贝个人博客文件夹中，部分文件，到新电脑，存放个人博客文件的文件夹中</p><blockquote><p>_config.yml</p><p>package.json</p><p>scaffolds&#x2F;</p><p>source&#x2F;</p><p>themes&#x2F;</p><p>.gitignore    这个图中没标，注意保留</p></blockquote><img src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic1/img/202408031631634.WebP" alt="img" style="zoom:33%;"><h1 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a><center>安装hexo</center></h1><p>在 cmd 下输入下面指令安装 hexo</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure><img src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic1/img/202408031631749.WebP" alt="img" style="zoom:50%;"><h1 id="配置博客"><a href="#配置博客" class="headerlink" title="配置博客"></a><center>配置博客</center></h1><p>进入 F:&#x2F;Blog 目录（你拷贝到新电脑的目录），右键git，输入下面指令安装相关模块</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// “ ”内换成自己对应的</span><br><span class="line">git config --global user.name &quot;HuGen&quot;</span><br><span class="line">git config --global user.email &quot;LoveHuGen@126q.com&quot;</span><br><span class="line">ssh-keygen -t rsa -C &quot;LoveHuGen@126q.com&quot;</span><br></pre></td></tr></table></figure><p>Github 添加 SSH Keys</p><p>1、在本地创建 <code>SSH Keys</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;wujiajiansh@163.com&quot;</span><br><span class="line">//一直回车，直到结束</span><br></pre></td></tr></table></figure><p>2、复制key</p><img src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic1/img/202408031629005.WebP" alt="img" style="zoom:50%;"><p>进入登录GitHub，在设置中添加ssh key</p><img src="https://i-blog.csdnimg.cn/blog_migrate/3431a3fd067aaa03d8860c1652da41c9.WebP" alt="img" style="zoom: 33%;"><p>将上一步中的文件里面的内容全部复制进去 ，点击添加</p><img src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic1/img/202408031629211.WebP" alt="img" style="zoom:33%;"><h1 id="部署博客"><a href="#部署博客" class="headerlink" title="部署博客"></a><center>部署博客</center></h1><p>打开电脑的：Windows PowerShell 进入博客目录</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br><span class="line">npm install hexo-deployer-git --save  // 文章部署到 git 的模块</span><br><span class="line">（下面为选择安装）</span><br><span class="line">npm install hexo-generator-feed --save  // 建立 RSS 订阅</span><br><span class="line">npm install hexo-generator-sitemap --save // 建立站点地图</span><br></pre></td></tr></table></figure><p>依次命令安装 </p><img src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic1/img/202408031629186.WebP" alt="img" style="zoom: 50%;"><p>全部安装完成之后，一键三连部署上传</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo cl &amp;&amp; hexo g  &amp;&amp; hexo d</span><br></pre></td></tr></table></figure><p>到此全部完成，感谢观看！！！ </p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;安装和配置所需要的软件&quot;&gt;&lt;a href=&quot;#安装和配置所需要的软件&quot; class=&quot;headerlink&quot; title=&quot;安装和配置所需要的软件&quot;&gt;&lt;/a&gt;&lt;center&gt;安装和配置所需要的软件&lt;/center&gt;&lt;/h1&gt;&lt;p&gt;安装Git 客户端，安装过程省略，</summary>
-      
-    
-    
-    
-    <category term="技术积累记录" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF%E8%AE%B0%E5%BD%95/"/>
-    
-    
-    <category term="个人博客迁移" scheme="http://example.com/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB/"/>
     
   </entry>
   
