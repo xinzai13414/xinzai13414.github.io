@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-08-17T08:29:13.169Z</updated>
+  <updated>2024-08-17T08:31:41.008Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://example.com/post/bd740709.html"/>
     <id>http://example.com/post/bd740709.html</id>
     <published>2024-08-17T08:28:32.000Z</published>
-    <updated>2024-08-17T08:29:13.169Z</updated>
+    <updated>2024-08-17T08:31:41.008Z</updated>
     
     
     
@@ -38,9 +38,9 @@
     <link href="http://example.com/post/acb77072.html"/>
     <id>http://example.com/post/acb77072.html</id>
     <published>2024-08-16T07:49:08.000Z</published>
-    <updated>2024-08-17T08:25:47.717Z</updated>
+    <updated>2024-08-17T09:06:51.386Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="理论"><a href="#理论" class="headerlink" title="理论"></a><center>理论</center></h1><p>12个通道：DMA1（7）DMA2（5）</p><img src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic1/img/202408171625579.webp" alt="通道" style="zoom:50%;"><p>方向：存储器和存储器间(DMA_MEMORY_TO_MEMORY)、外设到存储器(DMA_PERIPH_TO_MEMORY)、存储器到外设(DMA_MEMORY_TO_PERIPH)</p><p>闪存、 SRAM、外设的SRAM、 APB1、 APB2和AHB外设均可作为访问的源和目标</p><p>数据宽度：字节(Byte 8)、半字(Half Word 16)、全字(Word 32)</p><p>可编程的数据传输数目： 0 ~ 65535</p><p>若可编程的数据传输数目为10，数据宽度为字节，半字，全字<br>传输总数据大小：10字节，20字节，40字节</p><p>若传输总数据大小与实际传输不符，会让传输标志(__HAL_DMA_GET_FLAG) ≠ 0</p><h1 id="代码编写"><a href="#代码编写" class="headerlink" title="代码编写"></a><center>代码编写</center></h1><p>存储器和存储器间实验</p><h2 id="DMA配置"><a href="#DMA配置" class="headerlink" title="DMA配置"></a><center>DMA配置</center></h2><img src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic1/img/202408171625497.webp" alt="DMA配置" style="zoom:50%;"><p>串口初始化参考：<a href="https://blog.csdn.net/qq_65047384/article/details/140912225">链接</a></p><h2 id="Cube-IDE代码"><a href="#Cube-IDE代码" class="headerlink" title="Cube IDE代码"></a><center>Cube IDE代码</center></h2><p>main.c</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* USER CODE BEGIN PD */</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> BUFF_SIZE 100<span class="comment">//37行</span></span></span><br><span class="line"><span class="comment">/* USER CODE END PD */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* USER CODE BEGIN PV */</span></span><br><span class="line"><span class="type">uint8_t</span> SRC_Buff[BUFF_SIZE];<span class="comment">//48行</span></span><br><span class="line"><span class="type">uint8_t</span> DEST_Buff[BUFF_SIZE];</span><br><span class="line"><span class="comment">/* USER CODE END PV */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; BUFF_SIZE; i++)<span class="comment">//95行</span></span><br><span class="line">  SRC_Buff[i] = i+<span class="number">2</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* 参数1：指向 DMA_HandleTypeDef 结构的指针，该结构包含指向 DMA 通道的配置信息</span></span><br><span class="line"><span class="comment">* 参数2：源内存缓冲区地址</span></span><br><span class="line"><span class="comment">* 参数3：目标内存缓冲区地址，参数4：从源传输到目标的数据长度</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">HAL_DMA_Start(&amp;hdma_memtomem_dma1_channel1, (<span class="type">uint32_t</span>)SRC_Buff, (<span class="type">uint32_t</span>)DEST_Buff, BUFF_SIZE);</span><br><span class="line"></span><br><span class="line"><span class="comment">//while里,111行</span></span><br><span class="line">hdma_memtomem_dma1_channel1.Instance-&gt;CNDTR = BUFF_SIZE;<span class="comment">//可编程的数据传输数目：CNDTR</span></span><br><span class="line">__HAL_DMA_ENABLE(&amp;hdma_memtomem_dma1_channel1);<span class="comment">//启用指定的 DMA 通道</span></span><br><span class="line"><span class="keyword">while</span>(__HAL_DMA_GET_FLAG(&amp;hdma_memtomem_dma1_channel1, DMA_FLAG_TC1) == <span class="number">0</span>);<span class="comment">//判断是否传输完成</span></span><br><span class="line">HAL_UART_Transmit(&amp;huart1, DEST_Buff, BUFF_SIZE, <span class="number">100</span>);<span class="comment">//串口发送据</span></span><br><span class="line">__HAL_DMA_CLEAR_FLAG(&amp;hdma_memtomem_dma1_channel1, DMA_FLAG_TC1);<span class="comment">//清楚标志</span></span><br><span class="line">__HAL_DMA_DISABLE(&amp;hdma_memtomem_dma1_channel1);<span class="comment">//禁用指定的 DMA 通道</span></span><br><span class="line">HAL_Delay(<span class="number">1000</span>);</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h1 id="理论"><a href="#理论" class="headerlink" title="理论"></a><center>理论</center></h1><p>12个通道：DMA1（7）DMA2（5）</p><img src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic1/img/202408171625579.webp" alt="通道" style="zoom:50%;"><p>方向：存储器和存储器间(DMA_MEMORY_TO_MEMORY)、外设到存储器(DMA_PERIPH_TO_MEMORY)、存储器到外设(DMA_MEMORY_TO_PERIPH)</p><p>闪存、 SRAM、外设的SRAM、 APB1、 APB2和AHB外设均可作为访问的源和目标</p><p>数据宽度：字节(Byte 8)、半字(Half Word 16)、全字(Word 32)</p><p>可编程的数据传输数目： 0 ~ 65535</p><p>若可编程的数据传输数目为10，数据宽度为字节，半字，全字<br>传输总数据大小：10字节，20字节，40字节</p><p>若传输总数据大小与实际传输不符，会让传输标志(__HAL_DMA_GET_FLAG) ≠ 0</p><h1 id="代码编写"><a href="#代码编写" class="headerlink" title="代码编写"></a><center>代码编写</center></h1><p>存储器和存储器间实验</p><h2 id="DMA配置"><a href="#DMA配置" class="headerlink" title="DMA配置"></a><center>DMA配置</center></h2><img src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic1/img/202408171625497.webp" alt="DMA配置" style="zoom:50%;"><p>串口初始化参考：<a href="https://d3iiz.top/post/2c4c3bc3">链接</a></p><h2 id="Cube-IDE代码"><a href="#Cube-IDE代码" class="headerlink" title="Cube IDE代码"></a><center>Cube IDE代码</center></h2><p>main.c</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* USER CODE BEGIN PD */</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> BUFF_SIZE 100<span class="comment">//37行</span></span></span><br><span class="line"><span class="comment">/* USER CODE END PD */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* USER CODE BEGIN PV */</span></span><br><span class="line"><span class="type">uint8_t</span> SRC_Buff[BUFF_SIZE];<span class="comment">//48行</span></span><br><span class="line"><span class="type">uint8_t</span> DEST_Buff[BUFF_SIZE];</span><br><span class="line"><span class="comment">/* USER CODE END PV */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; BUFF_SIZE; i++)<span class="comment">//95行</span></span><br><span class="line">  SRC_Buff[i] = i+<span class="number">2</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* 参数1：指向 DMA_HandleTypeDef 结构的指针，该结构包含指向 DMA 通道的配置信息</span></span><br><span class="line"><span class="comment">* 参数2：源内存缓冲区地址</span></span><br><span class="line"><span class="comment">* 参数3：目标内存缓冲区地址，参数4：从源传输到目标的数据长度</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">HAL_DMA_Start(&amp;hdma_memtomem_dma1_channel1, (<span class="type">uint32_t</span>)SRC_Buff, (<span class="type">uint32_t</span>)DEST_Buff, BUFF_SIZE);</span><br><span class="line"></span><br><span class="line"><span class="comment">//while里,111行</span></span><br><span class="line">hdma_memtomem_dma1_channel1.Instance-&gt;CNDTR = BUFF_SIZE;<span class="comment">//可编程的数据传输数目：CNDTR</span></span><br><span class="line">__HAL_DMA_ENABLE(&amp;hdma_memtomem_dma1_channel1);<span class="comment">//启用指定的 DMA 通道</span></span><br><span class="line"><span class="keyword">while</span>(__HAL_DMA_GET_FLAG(&amp;hdma_memtomem_dma1_channel1, DMA_FLAG_TC1) == <span class="number">0</span>);<span class="comment">//判断是否传输完成</span></span><br><span class="line">HAL_UART_Transmit(&amp;huart1, DEST_Buff, BUFF_SIZE, <span class="number">100</span>);<span class="comment">//串口发送据</span></span><br><span class="line">__HAL_DMA_CLEAR_FLAG(&amp;hdma_memtomem_dma1_channel1, DMA_FLAG_TC1);<span class="comment">//清楚标志</span></span><br><span class="line">__HAL_DMA_DISABLE(&amp;hdma_memtomem_dma1_channel1);<span class="comment">//禁用指定的 DMA 通道</span></span><br><span class="line">HAL_Delay(<span class="number">1000</span>);</span><br></pre></td></tr></table></figure>]]></content>
     
     
       
@@ -428,29 +428,6 @@
   </entry>
   
   <entry>
-    <title>DHT11dht11.c(18) error C174 return-expression on void-function</title>
-    <link href="http://example.com/post/c4236caa.html"/>
-    <id>http://example.com/post/c4236caa.html</id>
-    <published>2024-08-03T08:46:17.000Z</published>
-    <updated>2024-08-16T13:43:43.792Z</updated>
-    
-    <content type="html"><![CDATA[<p>表示在函数dht11.c的第18行，有一个返回表达式出现在了一个返回类型为void的函数中。在C语言中，如果一个函数的声明或定义中指定了返回类型为void，那么这个函数不能有任何返回值。</p><p>​    要解决这个问题，你需要检查dht11.c文件中第18行的代码，确保没有返回值。如果该行代码确实需要返回一个值，那么你需要将该函数的返回类型修改为非void类型</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;表示在函数dht11.c的第18行，有一个返回表达式出现在了一个返回类型为void的函数中。在C语言中，如果一个函数的声明或定义中指定了返回类型为void，那么这个函数不能有任何返回值。&lt;/p&gt;
-&lt;p&gt;​    要解决这个问题，你需要检查dht11.c文件中第18行的代码，</summary>
-      
-    
-    
-    
-    <category term="错误记录" scheme="http://example.com/categories/%E9%94%99%E8%AF%AF%E8%AE%B0%E5%BD%95/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>STM32烧录的时候报错：Error :Flash Download failed -“Cortex-M3“</title>
     <link href="http://example.com/post/63d3dd68.html"/>
     <id>http://example.com/post/63d3dd68.html</id>
@@ -466,6 +443,29 @@
 &lt;img src=&quot;https://cdn.jsdelivr.net/gh/xinzai-x/MyPic1/img/202408161347291.WebP&quot; alt=&quot;进入设置&quot; style=&quot;zoom:50%;&quot;&gt;
 
 &lt;p&gt;</summary>
+      
+    
+    
+    
+    <category term="错误记录" scheme="http://example.com/categories/%E9%94%99%E8%AF%AF%E8%AE%B0%E5%BD%95/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>DHT11dht11.c(18) error C174 return-expression on void-function</title>
+    <link href="http://example.com/post/c4236caa.html"/>
+    <id>http://example.com/post/c4236caa.html</id>
+    <published>2024-08-03T08:46:17.000Z</published>
+    <updated>2024-08-16T13:43:43.792Z</updated>
+    
+    <content type="html"><![CDATA[<p>表示在函数dht11.c的第18行，有一个返回表达式出现在了一个返回类型为void的函数中。在C语言中，如果一个函数的声明或定义中指定了返回类型为void，那么这个函数不能有任何返回值。</p><p>​    要解决这个问题，你需要检查dht11.c文件中第18行的代码，确保没有返回值。如果该行代码确实需要返回一个值，那么你需要将该函数的返回类型修改为非void类型</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;表示在函数dht11.c的第18行，有一个返回表达式出现在了一个返回类型为void的函数中。在C语言中，如果一个函数的声明或定义中指定了返回类型为void，那么这个函数不能有任何返回值。&lt;/p&gt;
+&lt;p&gt;​    要解决这个问题，你需要检查dht11.c文件中第18行的代码，</summary>
       
     
     
