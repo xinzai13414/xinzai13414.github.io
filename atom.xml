@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-08-17T08:31:41.008Z</updated>
+  <updated>2024-08-18T08:24:35.274Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,8 +21,16 @@
     <link href="http://example.com/post/bd740709.html"/>
     <id>http://example.com/post/bd740709.html</id>
     <published>2024-08-17T08:28:32.000Z</published>
-    <updated>2024-08-17T08:31:41.008Z</updated>
+    <updated>2024-08-18T08:24:35.274Z</updated>
     
+    <content type="html"><![CDATA[<h1 id="SPI理论"><a href="#SPI理论" class="headerlink" title="SPI理论"></a><center>SPI理论</center></h1><p>常规四线：SCLK、CS、MOSI(主向从发)、MISO(从向主发)</p><p>同步、串行、全双工、速率(MHz)</p><p>一主一从、一主多从、不能多主</p><img src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic1/img/202408181624097.webp" alt="一主多从" style="zoom:50%;"><img src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic1/img/202408181623070.webp" alt="一主多从" style="zoom:50%;"><p>工作模式：</p><ul><li>CPOL<ul><li>0：总线空闲状态时钟为低电平，1：总线空闲状态时钟为高电平</li></ul></li><li>CPHA<ul><li>0：时钟第一个沿对数据采样，1：时钟第二个沿对数据采样</li></ul></li></ul><p>QSPI：相比SPI区别，四个数据线，一个时钟内传输4个bit</p><p>时序：</p><img src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic1/img/202408181623809.webp" alt="SPI时序" style="zoom:50%;"><h1 id="网络理论"><a href="#网络理论" class="headerlink" title="网络理论"></a><center>网络理论</center></h1><p>TCP三次握手，四次挥手。参考：<a href="https://blog.csdn.net/weixin_45393094/article/details/104965561?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522169864750516800182774327%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=169864750516800182774327&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-104965561-null-null.142%5Ev96%5Epc_search_result_base9&utm_term=%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%E8%AF%A6%E8%A7%A3&spm=1018.2226.3001.4187">参考</a></p><p>TCP和UDP区别参考：<a href="https://blog.csdn.net/weixin_45272371/article/details/129378067">链接</a></p><p>网络模型：OSI七层网络模型（<a href="https://blog.csdn.net/troubleshooter/article/details/122376824">链接</a>）、五层网络模型（<a href="https://blog.csdn.net/weixin_44417441/article/details/113769242?spm=1001.2101.3001.6650.3&utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-3-113769242-blog-123167871.235%5Ev38%5Epc_relevant_sort&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-3-113769242-blog-123167871.235%5Ev38%5Epc_relevant_sort&utm_relevant_index=6">链接</a>）</p><h2 id="SPI配置"><a href="#SPI配置" class="headerlink" title="SPI配置"></a><center>SPI配置</center></h2><img src="https://cdn.jsdelivr.net/gh/xinzai-x/MyPic1/img/202408181623899.webp" alt="SPI配置" style="zoom:50%;">]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;SPI理论&quot;&gt;&lt;a href=&quot;#SPI理论&quot; class=&quot;headerlink&quot; title=&quot;SPI理论&quot;&gt;&lt;/a&gt;&lt;center&gt;SPI理论&lt;/center&gt;&lt;/h1&gt;&lt;p&gt;常规四线：SCLK、CS、MOSI(主向从发)、MISO(从向主发)&lt;/p&gt;
+&lt;p</summary>
+      
     
     
     
@@ -428,6 +436,29 @@
   </entry>
   
   <entry>
+    <title>DHT11dht11.c(18) error C174 return-expression on void-function</title>
+    <link href="http://example.com/post/c4236caa.html"/>
+    <id>http://example.com/post/c4236caa.html</id>
+    <published>2024-08-03T08:46:17.000Z</published>
+    <updated>2024-08-16T13:43:43.792Z</updated>
+    
+    <content type="html"><![CDATA[<p>表示在函数dht11.c的第18行，有一个返回表达式出现在了一个返回类型为void的函数中。在C语言中，如果一个函数的声明或定义中指定了返回类型为void，那么这个函数不能有任何返回值。</p><p>​    要解决这个问题，你需要检查dht11.c文件中第18行的代码，确保没有返回值。如果该行代码确实需要返回一个值，那么你需要将该函数的返回类型修改为非void类型</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;表示在函数dht11.c的第18行，有一个返回表达式出现在了一个返回类型为void的函数中。在C语言中，如果一个函数的声明或定义中指定了返回类型为void，那么这个函数不能有任何返回值。&lt;/p&gt;
+&lt;p&gt;​    要解决这个问题，你需要检查dht11.c文件中第18行的代码，</summary>
+      
+    
+    
+    
+    <category term="错误记录" scheme="http://example.com/categories/%E9%94%99%E8%AF%AF%E8%AE%B0%E5%BD%95/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>STM32烧录的时候报错：Error :Flash Download failed -“Cortex-M3“</title>
     <link href="http://example.com/post/63d3dd68.html"/>
     <id>http://example.com/post/63d3dd68.html</id>
@@ -443,29 +474,6 @@
 &lt;img src=&quot;https://cdn.jsdelivr.net/gh/xinzai-x/MyPic1/img/202408161347291.WebP&quot; alt=&quot;进入设置&quot; style=&quot;zoom:50%;&quot;&gt;
 
 &lt;p&gt;</summary>
-      
-    
-    
-    
-    <category term="错误记录" scheme="http://example.com/categories/%E9%94%99%E8%AF%AF%E8%AE%B0%E5%BD%95/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>DHT11dht11.c(18) error C174 return-expression on void-function</title>
-    <link href="http://example.com/post/c4236caa.html"/>
-    <id>http://example.com/post/c4236caa.html</id>
-    <published>2024-08-03T08:46:17.000Z</published>
-    <updated>2024-08-16T13:43:43.792Z</updated>
-    
-    <content type="html"><![CDATA[<p>表示在函数dht11.c的第18行，有一个返回表达式出现在了一个返回类型为void的函数中。在C语言中，如果一个函数的声明或定义中指定了返回类型为void，那么这个函数不能有任何返回值。</p><p>​    要解决这个问题，你需要检查dht11.c文件中第18行的代码，确保没有返回值。如果该行代码确实需要返回一个值，那么你需要将该函数的返回类型修改为非void类型</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;表示在函数dht11.c的第18行，有一个返回表达式出现在了一个返回类型为void的函数中。在C语言中，如果一个函数的声明或定义中指定了返回类型为void，那么这个函数不能有任何返回值。&lt;/p&gt;
-&lt;p&gt;​    要解决这个问题，你需要检查dht11.c文件中第18行的代码，</summary>
       
     
     
