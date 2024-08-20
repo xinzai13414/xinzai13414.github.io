@@ -20272,10 +20272,7 @@ svg.icon {
 
 /* 文章页面正文背景 */
 div#post {
-  background-image: url('https://img.picgo.net/2024/08/20/111111f683c28777a1a3.jpeg ');
-  background-image: background-image;
-  background-attachment: fixed;
-  background-size: cover;
+  background: rgba(255, 255, 255, 0.9);
 }
 #recent-posts > .recent-post-item:not(:first-child):active {
   transform: scale(0.97);
@@ -20297,10 +20294,7 @@ div#tag {
 
 /* 分类页面 */
 div#category {
-  background-image: url('https://img.picgo.net/2024/08/20/111111f683c28777a1a3.jpeg ');
-  background-image: background-image;
-  background-attachment: fixed;
-  background-size: cover;
+  background-image: url('https://img.picgo.net/2024/08/20/111111f683c28777a1a3.jpeg');
 }
 
 /*夜间模式伪类遮罩层透明*/
