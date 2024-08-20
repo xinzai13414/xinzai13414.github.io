@@ -20272,7 +20272,10 @@ svg.icon {
 
 /* 文章页面正文背景 */
 div#post {
-  background: rgba(255, 255, 255, 0.9);
+  background-image: url('https://img.picgo.net/2024/08/20/111111f683c28777a1a3.jpeg ');
+  background-image: background-image;
+  background-attachment: fixed;
+  background-size: cover;
 }
 #recent-posts > .recent-post-item:not(:first-child):active {
   transform: scale(0.97);
