@@ -20289,7 +20289,7 @@ div#archive {
 
 /* 标签页面 */
 div#tag {
-  background: var('https://img.picgo.net/2024/08/20/111111f683c28777a1a3.jpeg');
+  background: rgba(255, 255, 255, 0.9);
 }
 
 /* 分类页面 */
